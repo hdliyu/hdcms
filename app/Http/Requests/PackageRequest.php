@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Package;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PackageRequest extends FormRequest
 {
@@ -24,17 +26,23 @@ class PackageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>['required','min:2','max:20','unique:packages'],
+            'name' => ['required', 'min:2', 'max:20', Rule::unique('packages')->ignore(request()->package)]
         ];
     }
 
-    public function messages()
+//    public function messages()
+//    {
+//        return [
+//            'name.required'=>'套餐名称不能为空',
+//            'name.min'=>'套餐名称长度不能少于2位',
+//            'name.max'=>'套餐名称长度不能超过20位',
+//            'name.unique'=>'套餐已经存在',
+//        ];
+//    }
+
+    public function attributes()
     {
-        return [
-            'name.required'=>'套餐名称不能为空',
-            'name.min'=>'套餐名称长度不能少于2位',
-            'name.max'=>'套餐名称长度不能超过20位',
-            'name.unique'=>'套餐已经存在',
-        ];
+        return ['name'=>'套餐名'];
     }
+
 }

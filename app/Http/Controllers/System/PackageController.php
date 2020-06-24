@@ -9,7 +9,7 @@ class PackageController extends ApiController
 {
     public function index()
     {
-        return Package::all();
+        return $this->json(Package::all());
     }
 
     public function store(PackageRequest $request,Package $package)
@@ -21,7 +21,7 @@ class PackageController extends ApiController
 
     public function show(Package $package)
     {
-        return $package;
+        return $this->json($package);
     }
 
     public function update(PackageRequest $request, Package $package)
