@@ -16,7 +16,7 @@ class PackageController extends ApiController
     {
         $package->name = $request->name;
         $package->save();
-        return $this->success('添加套餐成功',$package->toArray());
+        return $this->success('添加套餐成功',$package);
     }
 
     public function show(Package $package)
@@ -28,12 +28,12 @@ class PackageController extends ApiController
     {
         $package->name = $request->name;
         $package->save();
-        return $this->success('修改套餐成功',$package->toArray());
+        return $this->success('修改套餐成功',$package);
     }
 
     public function destroy(Package $package)
     {
         $package->delete();
-        return $this->success('删除套餐成功',$package->toArray());
+        return $this->success('删除套餐成功',$package);
     }
 }
