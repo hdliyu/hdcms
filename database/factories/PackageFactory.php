@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Package::class, function (Faker $faker) {
     return [
         //
-        'name'=>$faker->word,
+        'name'=>$faker->name,
     ];
 });

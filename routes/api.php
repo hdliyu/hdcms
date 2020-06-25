@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::group(['namespace'=>'System','prefix'=>'system'],function(){
+Route::group(['namespace'=>'System','prefix'=>'system','middleware'=>['auth:sanctum']],function(){
     Route::apiResource('package','PackageController');
+    Route::apiResource('group','GroupController');
+});
+
+Route::group(['namespace'=>'User','prefix'=>'user'],function(){
+    Route::post('register','RegisterController');
+    Route::post('login','LoginController');
 });
