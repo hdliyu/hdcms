@@ -11,7 +11,6 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
     'accepted'        => '您必须接受 :attribute。',
     'active_url'      => ':attribute 不是一个有效的网址。',
     'after'           => ':attribute 必须要晚于 :date。',
@@ -116,7 +115,7 @@ return [
     'uploaded'    => ':attribute 上传失败。',
     'url'         => ':attribute 格式不正确。',
     'uuid'        => ':attribute 必须是有效的 UUID。',
-
+    'captcha'     => ':attribute 输入错误',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -146,6 +145,8 @@ return [
     */
 
     'attributes' => [
+        'account'         => '账号',
+        'captcha'         => '验证码',
         'name'                  => '名称',
         'username'              => '用户名',
         'email'                 => '邮箱',
