@@ -10,8 +10,15 @@
 </head>
 <body class="account d-flex align-items-center">
 <div class="container">
-    @yield('content')
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-4">
+            @include('layouts.message')
+            @yield('content')
+        </div>
+    </div>
 </div>
 <script src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>
+
+
