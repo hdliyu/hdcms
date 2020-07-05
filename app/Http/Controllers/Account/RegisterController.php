@@ -16,10 +16,11 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'account'=>['required'],
-            'password'=>['required','min:3'],
-            'password_confirmation'=>['required','confirm'],
-            'captcha'=>['required','captcha'],
+            'code'=>['required'],
+            'account'=>['required','string'],
+            'password'=>['required','min:3','confirmed'],
+            'password_confirmation'=>['required'],
+            'name'=>['required','string'],
         ]);
     }
 
