@@ -1,6 +1,7 @@
 @extends('layouts.account')
 @section('title','会员注册')
 @section('content')
+    <register inline-template>
     <div class="card shadow">
         <form action="{{route('register.store')}}" method="post">
             @csrf
@@ -8,7 +9,6 @@
             会员注册
         </div>
         <div class="card-body">
-            <register inline-template>
                 <div>
                     <x-input title="账号" type="text" name="account" placeholder="请输入邮箱或手机号" v-model="form.account"></x-input>
                     <div class="form-group">
@@ -20,12 +20,11 @@
                             </div>
                         </div>
                     </div>
-                    <x-input component="captcha" v-model="form.captcha"></x-input>
+                    <x-input component="captcha" v-model="form.captch"></x-input>
                 </div>
-            </register>
             <hr>
-            <x-input title="密码" type="password" name="password" placeholder="请输入注册密码"></x-input>
-            <x-input title="确认密码" type="password" name="password_confirmation" placeholder="请输入确认密码"></x-input>
+            <x-input title="密码" type="password" name="password" placeholder="请输入注册密码" v-model="form.password"></x-input>
+            <x-input title="确认密码" type="password" name="password_confirmation" placeholder="请输入确认密码" v-model="form.password_confirmation"></x-input>
         </div>
         <div class="card-footer text-muted d-flex justify-content-between align-items-center">
             <button class="btn btn-success">注册</button>
@@ -35,4 +34,5 @@
         </div>
         </form>
     </div>
+    </register>
 @endsection

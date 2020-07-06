@@ -3,9 +3,11 @@
         data(){
             return {
                form:{
-                   code:'abc',
-                   account:'cba',
-                   captcha:'asdfas',
+                   code:'',
+                   account:'',
+                   captcha:'',
+                   password:'',
+                   password_confirmation:'',
                }
             }
         },
