@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Common\VerificationCodeController;
+use App\Notifications\VerificationCodeNotification;
+use App\Services\CodeService;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('mail',function(){
+    app(CodeService::class)->send('888@qq.com');
+});
 Route::get('/', function () {
     return view('home');
 })->name('home');

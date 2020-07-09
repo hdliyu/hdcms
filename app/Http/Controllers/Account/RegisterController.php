@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Account;
 
+use App\Services\CodeService;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -23,11 +24,13 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function code(Request $request)
+    public function code(Request $request,CodeService $codeService)
     {
         $request->validate([
             'account'=>['required',$this->validateAccountField()],
             'captcha'=>['required','captcha'],
         ]);
+        $codeService->send($request->account);
+        return response()->json(['message'=>'验证码发送成功']);
     }
 }
