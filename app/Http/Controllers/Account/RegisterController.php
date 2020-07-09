@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -17,11 +16,18 @@ class RegisterController extends Controller
     {
         $request->validate([
             'code'=>['required'],
-            'account'=>['required','string'],
+            'account'=>['required',$this->validateAccountField()],
             'password'=>['required','min:3','confirmed'],
             'password_confirmation'=>['required'],
             'name'=>['required','string'],
         ]);
     }
 
+    public function code(Request $request)
+    {
+        $request->validate([
+            'account'=>['required',$this->validateAccountField()],
+            'captcha'=>['required','captcha'],
+        ]);
+    }
 }

@@ -14,8 +14,8 @@
                         <label for="code">验证码</label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="请输入收到的验证码" id="code" v-model="code">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2" style="cursor: pointer;" @click="sendCode">发送验证码</span>
+                            <div class="input-group-append"  @click="sendCode">
+                                <span class="input-group-text" id="basic-addon2" style="cursor: pointer;">发送验证码</span>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,9 @@
         },
         methods: {
             sendCode(){
-                alert(3);
+                this.axios.post('/register/code').then(r=>{
+                    console.log(r);
+                })
             },
             updateCaptcha(){
                 this.captchImage = this.captchImage+'?'+Math.random();

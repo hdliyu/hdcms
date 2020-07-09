@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Http\Controllers\Controller;
 use App\Rules\AccountRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +18,7 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'account'=>['required',new AccountRule],
+            'account'=>['required',$this->validateAccountField()],
             'password'=>['required','min:3'],
             'captcha'=>['required','captcha'],
         ]
@@ -31,10 +30,6 @@ class LoginController extends Controller
         return back()->with('danger','帐号或密码错误');
     }
 
-    protected function username()
-    {
-        return filter_var(request()->account,FILTER_VALIDATE_EMAIL)?'email':'mobile';
-    }
     public function logout()
     {
         auth()->logout();

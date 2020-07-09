@@ -17,7 +17,6 @@ window.Vue = require('vue');
  */
 
 const files = require.context('./components', true, /\.vue$/i)
-console.log(files.keys());
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('register', require('./components/Register.vue').default);

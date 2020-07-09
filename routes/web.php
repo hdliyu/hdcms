@@ -19,11 +19,8 @@ Route::get('/', function () {
 Route::group(['namespace'=>'Account','middleware'=>'auth'],function(){
     Route::get('logout','LoginController@logout')->name('login.logout');
 });
-Route::group(['namespace'=>'Account'],function(){
+Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
     Route::resource('login','LoginController')->only(['index','store']);
     Route::resource('register','RegisterController')->only(['index','store']);
-});
-
-Route::group(['namespace'=>'Common','prefix'=>'common','as'=>'common.'],function(){
-    Route::post('code','VerificationCodeController@send')->name('verification.code');
+    Route::post('register/code','RegisterController@code');
 });

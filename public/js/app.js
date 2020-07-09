@@ -3598,7 +3598,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendCode: function sendCode() {
-      alert(3);
+      this.axios.post('/register/code').then(function (r) {
+        console.log(r);
+      });
     },
     updateCaptcha: function updateCaptcha() {
       this.captchImage = this.captchImage + '?' + Math.random();
@@ -100140,18 +100142,24 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "input-group-append" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass: "input-group-text",
-                    staticStyle: { cursor: "pointer" },
-                    attrs: { id: "basic-addon2" },
-                    on: { click: _vm.sendCode }
-                  },
-                  [_vm._v("发送验证码")]
-                )
-              ])
+              _c(
+                "div",
+                {
+                  staticClass: "input-group-append",
+                  on: { click: _vm.sendCode }
+                },
+                [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "input-group-text",
+                      staticStyle: { cursor: "pointer" },
+                      attrs: { id: "basic-addon2" }
+                    },
+                    [_vm._v("发送验证码")]
+                  )
+                ]
+              )
             ])
           ]),
           _vm._v(" "),
@@ -112485,7 +112493,6 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 var files = __webpack_require__("./resources/js/components sync recursive \\.vue$/");
 
-console.log(files.keys());
 files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 }); // Vue.component('register', require('./components/Register.vue').default);
@@ -112511,7 +112518,8 @@ var app = new Vue({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _plugins_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./plugins/element */ "./resources/js/plugins/element.js");
+/* harmony import */ var _plugins_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./plugins/axios */ "./resources/js/plugins/axios.js");
+/* harmony import */ var _plugins_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugins/element */ "./resources/js/plugins/element.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -112532,8 +112540,7 @@ try {
  */
 
 
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -112668,6 +112675,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_97358ae4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/plugins/axios.js":
+/*!***************************************!*\
+  !*** ./resources/js/plugins/axios.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+window.axios = axios__WEBPACK_IMPORTED_MODULE_1___default.a;
+Object.defineProperties(vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype, {
+  axios: {
+    get: function get() {
+      return axios__WEBPACK_IMPORTED_MODULE_1___default.a;
+    }
+  }
+});
 
 /***/ }),
 
