@@ -1,7 +1,6 @@
 @extends('layouts.account')
 @section('title','会员登录')
 @section('content')
-    <login inline-template>
         <div class="card shadow">
             <form action="{{route('login.store')}}" method="post">
                 @csrf
@@ -22,5 +21,4 @@
                 </div>
             </form>
         </div>
-    </login>
 @endsection

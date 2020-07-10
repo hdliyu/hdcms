@@ -43,4 +43,9 @@ class CodeService
             return 'mobile';
         }
     }
+
+    public function check($account, $code)
+    {
+        return Cache::get($this->key($account)) == $code;
+    }
 }

@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="card-footer text-muted d-flex justify-content-between align-items-center">
-                <button class="btn btn-success">注册</button>
+                <button class="btn btn-success" @click="onSubmit">注册</button>
                 <div>
                     <a href="/login">登录</a> | <a href="">找回密码</a>
                 </div>
@@ -66,11 +66,11 @@
         methods: {
             async sendCode(){
                 this.updateCaptcha();
-                let {data:{message}} = await this.axios.post('register/code',this.$data);
-                this.$message({
-                    message,
-                    type:'success',
-                })
+                await this.axios.post('register/code',this.$data);
+            },
+            async onSubmit(){
+                await this.axios.post('register',this.$data);
+                location.href = '/';
             },
             updateCaptcha(){
                 this.captchImage = this.captchImage+'?'+Math.random();

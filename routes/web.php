@@ -28,5 +28,5 @@ Route::group(['namespace'=>'Account','middleware'=>'auth'],function(){
 Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
     Route::resource('login','LoginController')->only(['index','store']);
     Route::resource('register','RegisterController')->only(['index','store']);
-    Route::post('register/code','RegisterController@code');
+    Route::post('register/code','RegisterController@code')->middleware(['throttle:1,1']);
 });

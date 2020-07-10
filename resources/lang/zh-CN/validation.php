@@ -147,7 +147,7 @@ return [
     'attributes' => [
         'account'         => '账号',
         'captcha'         => '验证码',
-        'name'                  => '名称',
+        'name'                  => '昵称',
         'username'              => '用户名',
         'email'                 => '邮箱',
         'first_name'            => '名',

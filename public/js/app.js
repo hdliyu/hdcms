@@ -3632,8 +3632,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _yield$_this$axios$po, message;
-
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -3644,20 +3642,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _this.axios.post('register/code', _this.$data);
 
               case 3:
-                _yield$_this$axios$po = _context.sent;
-                message = _yield$_this$axios$po.data.message;
-
-                _this.$message({
-                  message: message,
-                  type: 'success'
-                });
-
-              case 6:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
+      }))();
+    },
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this2.axios.post('register', _this2.$data);
+
+              case 2:
+                location.href = '/';
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     },
     updateCaptcha: function updateCaptcha() {
@@ -101117,7 +101128,22 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _vm._m(0)
+    _c(
+      "div",
+      {
+        staticClass:
+          "card-footer text-muted d-flex justify-content-between align-items-center"
+      },
+      [
+        _c(
+          "button",
+          { staticClass: "btn btn-success", on: { click: _vm.onSubmit } },
+          [_vm._v("注册")]
+        ),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -101125,22 +101151,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-footer text-muted d-flex justify-content-between align-items-center"
-      },
-      [
-        _c("button", { staticClass: "btn btn-success" }, [_vm._v("注册")]),
-        _vm._v(" "),
-        _c("div", [
-          _c("a", { attrs: { href: "/login" } }, [_vm._v("登录")]),
-          _vm._v(" | "),
-          _c("a", { attrs: { href: "" } }, [_vm._v("找回密码")])
-        ])
-      ]
-    )
+    return _c("div", [
+      _c("a", { attrs: { href: "/login" } }, [_vm._v("登录")]),
+      _vm._v(" | "),
+      _c("a", { attrs: { href: "" } }, [_vm._v("找回密码")])
+    ])
   }
 ]
 render._withStripped = true
@@ -114802,6 +114817,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./loading */ "./resources/js/plugins/loading.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store */ "./resources/js/store/index.js");
+/* harmony import */ var element_ui__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! element-ui */ "./node_modules/element-ui/lib/element-ui.common.js");
+/* harmony import */ var element_ui__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(element_ui__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _httpStatus__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./httpStatus */ "./resources/js/plugins/httpStatus.js");
+
+
 
 
 
@@ -114831,6 +114851,10 @@ _axios.interceptors.request.use(function (config) {
 
 _axios.interceptors.response.use(function (response) {
   _loading__WEBPACK_IMPORTED_MODULE_2__["default"].close();
+  Object(element_ui__WEBPACK_IMPORTED_MODULE_4__["Message"])({
+    message: response.data.message,
+    type: 'success'
+  });
   return response;
 }, function (error) {
   _loading__WEBPACK_IMPORTED_MODULE_2__["default"].close();
@@ -114841,6 +114865,13 @@ _axios.interceptors.response.use(function (response) {
     case 422:
       _store__WEBPACK_IMPORTED_MODULE_3__["default"].commit('setErrors', data.errors);
       break;
+
+    default:
+      var message = data.message ? data.message : Object(_httpStatus__WEBPACK_IMPORTED_MODULE_5__["default"])(status);
+      Object(element_ui__WEBPACK_IMPORTED_MODULE_4__["Message"])({
+        message: message,
+        type: 'error'
+      });
   }
 
   return Promise.reject(error);
@@ -114867,6 +114898,72 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(element_ui__WEBPACK_IMPORTED_MODULE_1___default.a);
+
+/***/ }),
+
+/***/ "./resources/js/plugins/httpStatus.js":
+/*!********************************************!*\
+  !*** ./resources/js/plugins/httpStatus.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (status) {
+  var message = "";
+
+  switch (status) {
+    case 400:
+      message = "请求错误(400)";
+      break;
+
+    case 401:
+      message = "请求要求用户的身份认证(401)";
+      break;
+
+    case 403:
+      message = "没有访问权限(403)";
+      break;
+
+    case 404:
+      message = "访问页面不存在(404)";
+      break;
+
+    case 408:
+      message = "请求超时(408)";
+      break;
+
+    case 500:
+      message = "服务器错误(500)";
+      break;
+
+    case 501:
+      message = "服务未实现(501)";
+      break;
+
+    case 502:
+      message = "网络错误(502)";
+      break;
+
+    case 503:
+      message = "服务不可用(503)";
+      break;
+
+    case 504:
+      message = "网络超时(504)";
+      break;
+
+    case 505:
+      message = "HTTP版本不受支持(505)";
+      break;
+
+    default:
+      message = "\u8FDE\u63A5\u51FA\u9519(".concat(status, ")!");
+  }
+
+  return message;
+});
 
 /***/ }),
 
@@ -114953,8 +115050,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\liyu\code\hdcms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\liyu\code\hdcms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\hdcms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\hdcms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

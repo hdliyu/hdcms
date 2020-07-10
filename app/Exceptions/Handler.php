@@ -50,6 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+        if($exception instanceof \Illuminate\Http\Exceptions\ThrottleRequestsException){
+            return response()->json(['message'=>'操作频繁，请稍后再试'],429)->withHeaders($exception->getHeaders());
+        }
         return parent::render($request, $exception);
     }
 }
