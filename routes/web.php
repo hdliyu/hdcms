@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('mail',function(){
-    app(CodeService::class)->send('888@qq.com');
-});
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
 Route::group(['namespace'=>'Account','middleware'=>'auth'],function(){
     Route::get('logout','LoginController@logout')->name('login.logout');
 });
+
 Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
     Route::resource('login','LoginController')->only(['index','store']);
     Route::resource('register','RegisterController')->only(['index','store']);
