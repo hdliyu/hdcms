@@ -16,6 +16,7 @@
     @include('layouts.admin.quick-menu')
     </div>
     <div class="bg-white rounded shadow m-3 p-4 {{ route_class() }}" id="app">
+    @include('layouts.message')
     @yield('content')
     </div>
     <div class="d-flex flex-column justify-content-center align-items-center mt-5">
@@ -23,7 +24,6 @@
         <strong>Powerd by hdcms v6 2014-2020 www.hdcms.com</strong>
     </div>
 </div>
-
 <script src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>
