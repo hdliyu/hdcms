@@ -25,7 +25,7 @@ class LoginController extends Controller
         );
         $isLogin =  Auth::attempt([$this->username() => $request->account, 'password' => $request->password], (bool) $request->remember);
         if ($isLogin) {
-            return redirect()->intended('/');
+            return redirect()->intended('/admin');
         }
         return back()->with('danger','帐号或密码错误');
     }
@@ -33,7 +33,7 @@ class LoginController extends Controller
     public function logout()
     {
         auth()->logout();
-        return redirect('/login');
+        return redirect()->route('login');
     }
 
 }

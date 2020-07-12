@@ -16,7 +16,7 @@
                 <div class="card-footer text-muted d-flex justify-content-between align-items-center">
                     <button class="btn btn-success">登录</button>
                     <div>
-                        <a href="{{route('register.index')}}">注册</a> | <a href="">找回密码</a>
+                        <a href="{{route('register')}}">注册</a> | <a href="">找回密码</a>
                     </div>
                 </div>
             </form>

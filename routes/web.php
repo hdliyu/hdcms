@@ -16,17 +16,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
 Route::group(['namespace'=>'Account','middleware'=>'auth'],function(){
-    Route::get('logout','LoginController@logout')->name('login.logout');
+    Route::get('logout','LoginController@logout')->name('logout');
 });
 
 Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
-    Route::resource('login','LoginController')->only(['index','store']);
-    Route::resource('register','RegisterController')->only(['index','store']);
+    Route::resource('login','LoginController')->only(['index','store'])->names([
+        'index'=>'login'
+    ]);
+    Route::resource('register','RegisterController')->only(['index','store'])->names([
+        'index'=>'register'
+    ]);
     Route::post('register/code','RegisterController@code')->middleware(['throttle:1,1']);
+});
+
+Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth','as'=>'admin.'],function (){
+    Route::get('/','HomeController@index')->name('index');
+    Route::get('system', 'HomeController@setting')->name('setting');
 });
