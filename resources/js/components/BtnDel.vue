@@ -12,15 +12,14 @@
         },
         methods: {
             del($event) {
-                this.$confirm('确认删除吗?', '提示', {
+                this.$confirm('确认'+this.title+'吗？','提示', {
                     type: 'warning'
                 })
-                    .then(async () => {
-                        console.log(this.action)
-                        await this.axios.delete(this.action)
-                        location.reload(true)
-                    })
-                    .catch(() => {})
+                .then(async () => {
+                    await this.axios.delete(this.action)
+                    location.reload(true)
+                })
+                .catch(() => {})
             }
         }
     }

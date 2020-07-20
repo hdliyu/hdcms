@@ -3576,21 +3576,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     del: function del($event) {
       var _this = this;
 
-      this.$confirm('确认删除吗?', '提示', {
+      this.$confirm('确认' + this.title + '吗？', '提示', {
         type: 'warning'
       }).then( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log(_this.action);
-                _context.next = 3;
+                _context.next = 2;
                 return _this.axios["delete"](_this.action);
 
-              case 3:
+              case 2:
                 location.reload(true);
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -115222,8 +115221,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\liyu\code\hdcms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\liyu\code\hdcms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\hdcms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\hdcms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

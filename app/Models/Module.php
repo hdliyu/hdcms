@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Module extends Model
 {
     protected $fillable = ['title','name','version','description'];
+
+    public function package()
+    {
+        return $this->belongsToMany(Package::class);
+    }
 }
