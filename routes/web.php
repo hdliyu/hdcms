@@ -41,4 +41,6 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth','as'=>
     Route::get('module','ModuleController@index')->name('module.index');
     Route::get('module/install/{name}','ModuleController@install')->name('module.install');
     Route::delete('module/uninstall/{module:name}','ModuleController@uninstall')->name('module.uninstall');
+
+    Route::resource('package','PackageController');
 });

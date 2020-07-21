@@ -12,6 +12,10 @@ class PackageSeeder extends Seeder
     public function run()
     {
         //
-        factory(Package::class,10)->create();
+//        factory(Package::class,10)->create();
+        $package = new Package();
+        $package->title = '体验套餐';
+        $package->save();
     }
+
 }

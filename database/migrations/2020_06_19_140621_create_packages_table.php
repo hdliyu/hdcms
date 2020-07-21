@@ -15,7 +15,7 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->char('name',50)->unique()->comment('套餐名称');
+            $table->char('title',50)->unique()->comment('套餐名称');
             $table->timestamps();
         });
     }

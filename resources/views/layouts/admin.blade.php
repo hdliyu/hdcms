@@ -8,6 +8,7 @@
     <title>@yield('title','后台首页')</title>
     <link rel="stylesheet" href="{{mix('/css/app.css')}}">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    @stack('style')
 </head>
 <body>
 <div class="system">
@@ -24,6 +25,7 @@
         <strong>Powerd by hdcms v6 2014-2020 www.hdcms.com</strong>
     </div>
 </div>
+@stack('js')
 <script src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>

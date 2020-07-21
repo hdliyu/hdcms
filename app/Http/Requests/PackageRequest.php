@@ -26,7 +26,7 @@ class PackageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'min:2', 'max:20', Rule::unique('packages')->ignore(request()->package)]
+            'title' => ['required', 'min:2', 'max:20', Rule::unique('packages')->ignore(request()->package)]
         ];
     }
 
@@ -42,7 +42,7 @@ class PackageRequest extends FormRequest
 
     public function attributes()
     {
-        return ['name'=>'套餐名'];
+        return ['title'=>'套餐名'];
     }
 
 }

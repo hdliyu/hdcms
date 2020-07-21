@@ -14,7 +14,7 @@ class PackageController extends ApiController
 
     public function store(PackageRequest $request,Package $package)
     {
-        $package->name = $request->name;
+        $package->title = $request->title;
         $package->save();
         return $this->success('添加套餐成功',$package);
     }
@@ -26,7 +26,7 @@ class PackageController extends ApiController
 
     public function update(PackageRequest $request, Package $package)
     {
-        $package->name = $request->name;
+        $package->ttile = $request->ttile;
         $package->save();
         return $this->success('修改套餐成功',$package);
     }

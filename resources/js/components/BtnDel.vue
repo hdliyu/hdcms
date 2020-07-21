@@ -1,5 +1,5 @@
 <template>
-    <a href="#" @click.prevent="del" class="btn btn-danger btn-sm">
+    <a href="#" @click.prevent="del" class="btn btn-secondary btn-sm">
         {{title}}
     </a>
 </template>
