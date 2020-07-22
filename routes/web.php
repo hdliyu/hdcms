@@ -43,4 +43,5 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth','as'=>
     Route::delete('module/uninstall/{module:name}','ModuleController@uninstall')->name('module.uninstall');
 
     Route::resource('package','PackageController');
+    Route::resource('group','GroupController');
 });

@@ -12,4 +12,9 @@ class Package extends Model
     {
         return $this->belongsToMany(Module::class);
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }

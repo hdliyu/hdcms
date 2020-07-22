@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Rules\AccountRule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

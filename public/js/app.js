@@ -3634,7 +3634,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tableData: window.modules,
+      tableData: window.modules || window.packages,
       selected: window.selected,
       multipleSelection: []
     };

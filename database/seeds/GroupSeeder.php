@@ -13,8 +13,8 @@ class GroupSeeder extends Seeder
     public function run()
     {
         $groups = [
-            ['name'=>'普通会员组','is_default'=>true],
-            ['name'=>'VIP','is_default'=>false],
+            ['title'=>'普通会员组'],
+            ['title'=>'VIP'],
         ];
         collect($groups)->map(function($group){
             Group::create($group);

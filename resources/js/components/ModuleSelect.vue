@@ -22,7 +22,7 @@
     export default {
         data() {
             return {
-                tableData: window.modules,
+                tableData: window.modules || window.packages,
                 selected: window.selected,
                 multipleSelection: []
             }
