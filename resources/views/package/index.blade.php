@@ -18,7 +18,7 @@
                 <td>{{$package->title}}</td>
                 <td>{{$package->id}}</td>
                 <td>
-                    @foreach($package->module as $module)
+                    @foreach($package->modules as $module)
                         <span class="badge badge-success">{{$module->title}}</span>
                     @endforeach
                 </td>

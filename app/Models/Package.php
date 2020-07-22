@@ -8,7 +8,7 @@ class Package extends Model
 {
     protected $fillable = ['title'];
 
-    public function module()
+    public function modules()
     {
         return $this->belongsToMany(Module::class);
     }

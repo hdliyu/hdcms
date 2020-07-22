@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    protected $fillable = ['name','site_nums','days'];
+    protected $fillable = ['title','site_nums','days'];
 
     public function users()
     {

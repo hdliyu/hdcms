@@ -145,8 +145,10 @@ return [
     */
 
     'attributes' => [
-        'account'         => '账号',
-        'captcha'         => '验证码',
+        'site_nums'             =>'站点数量',
+        'days'                  =>'可用天数',
+        'account'               => '账号',
+        'captcha'               => '验证码',
         'name'                  => '昵称',
         'username'              => '用户名',
         'email'                 => '邮箱',

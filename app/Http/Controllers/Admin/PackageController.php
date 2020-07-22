@@ -19,6 +19,7 @@ class PackageController extends Controller
     {
         return view('package.create',['modules'=>$moduleService->allInstall()->values()]);
     }
+
     public function store(PackageRequest $request)
     {
         $package = Package::create($request->input());

@@ -26,5 +26,4 @@
     <script>
         window.modules = @json($modules)
     </script>
-
 @endpush
