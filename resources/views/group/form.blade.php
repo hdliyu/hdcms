@@ -28,7 +28,7 @@
             @foreach($packages as $package)
                 <tr>
                     <td><input type="checkbox" name="packages[]" value="{{$package['id']}}"
-                               {{$group->packages->contains($package)?'checked':''}}
+                               {{isset($group) && $group->hasPackage($package)?'checked':''}}
                         ></td>
                     <td>{{$package['id']}}</td>
                     <td>{{$package['title']}}</td>

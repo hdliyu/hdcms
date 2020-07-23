@@ -39,9 +39,14 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth','as'=>
     Route::get('system', 'HomeController@setting')->name('setting');
 
     Route::get('module','ModuleController@index')->name('module.index');
+    Route::get('module/installed','ModuleController@installed')->name('module.installed');
+    Route::get('module/uninstalled','ModuleController@uninstalled')->name('module.uninstalled');
     Route::get('module/install/{name}','ModuleController@install')->name('module.install');
     Route::delete('module/uninstall/{module:name}','ModuleController@uninstall')->name('module.uninstall');
 
     Route::resource('package','PackageController');
     Route::resource('group','GroupController');
+
+    Route::get('config','ConfigController@edit')->name('config.edit');
+    Route::put('config','ConfigController@update')->name('config.update');
 });

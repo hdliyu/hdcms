@@ -18,7 +18,7 @@ class CreateModulesTable extends Migration
             $table->string('title',100)->unique()->comment('模块名');
             $table->string('name',30)->unique()->comment('模块标识');
             $table->string('version',50)->comment('版本号');
-            $table->string('description',200)->unique()->comment('模块描述');
+            $table->string('description',200)->comment('模块描述');
             $table->timestamps();
         });
     }

@@ -19,4 +19,15 @@ class Group extends Model
         return $this->belongsToMany(Package::class);
     }
 
+    public function hasPackage($package)
+    {
+        return $this->packages->contains($package);
+    }
+
+    public function getModulesAttribute()
+    {
+        return $this->packages()->with('modules')->get()->mapWithKeys(function($package){
+            return $package->modules;
+        });
+    }
 }

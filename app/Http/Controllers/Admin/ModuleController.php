@@ -14,6 +14,7 @@ class ModuleController extends Controller
         return view('module.index',compact('modules'));
     }
 
+
     public function install($name,ModuleService $moduleService)
     {
         $module = $moduleService->find($name);

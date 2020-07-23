@@ -23,7 +23,7 @@ class PackageController extends Controller
     public function store(PackageRequest $request)
     {
         $package = Package::create($request->input());
-        $package->module()->sync($request->input('modules'));
+        $package->modules()->sync($request->input('modules'));
         return redirect()->route('admin.package.index')->with('success','套餐添加成功');
     }
 
@@ -38,7 +38,7 @@ class PackageController extends Controller
     public function update(PackageRequest $request, Package $package)
     {
         $package->fill($request->input())->save();
-        $package->module()->sync($request->input('modules'));
+        $package->modules()->sync($request->input('modules'));
         return redirect()->route('admin.package.index')->with('success','套餐修改成功');
     }
 

@@ -7,6 +7,7 @@
             <th width="80">编号</th>
             <th width="300">组名称</th>
             <th>应用套餐</th>
+            <th>可用模块</th>
             <th width="180">操作</th>
         </tr>
         </thead>
@@ -17,7 +18,12 @@
                 <td>{{$group->title}}</td>
                 <td>
                     @foreach($group->packages as $package)
-                        <span class="badge badge-success">{{$package->title}}</span>
+                        <a href="{{route('admin.package.edit',$package)}}" class="badge badge-info mr-2">{{$package->title}}</a>
+                    @endforeach
+                </td>
+                <td>
+                    @foreach($group->modules as $module)
+                        <a href="{{route('admin.module.index')}}" class="badge badge-info mr-2">{{$module->title}}</a>
                     @endforeach
                 </td>
                 <td>

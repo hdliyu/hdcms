@@ -11,9 +11,9 @@ class Input extends Component
      *
      * @return void
      */
-    public function __construct($component='input')
+    public function __construct($theme='input')
     {
-       $this->component = $component;
+       $this->theme = $theme;
     }
 
     /**
@@ -23,6 +23,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('components.'.$this->component);
+        return view('components.'.$this->theme);
     }
 }

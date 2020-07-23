@@ -16,10 +16,14 @@
             <tr>
                 <td scope="row">{{$package->id}}</td>
                 <td>{{$package->title}}</td>
-                <td>{{$package->id}}</td>
+                <td>
+                    @foreach($package->groups as $group)
+                        <a href="{{route('admin.group.edit',$group)}}" class="badge badge-info mr-2">{{$group->title}}</a>
+                    @endforeach
+                </td>
                 <td>
                     @foreach($package->modules as $module)
-                        <span class="badge badge-success">{{$module->title}}</span>
+                        <a href="{{route('admin.module.index')}}" class="badge badge-info mr-2">{{$module->title}}</a>
                     @endforeach
                 </td>
                 <td>

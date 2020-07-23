@@ -41,11 +41,11 @@
                 <i class="fa fa-2x d-block fa-sitemap" aria-hidden="true"></i>
                 站点列表
             </div>
-            <div
+            <a href="{{route('admin.config.edit')}}"
                 class="system-menu d-flex flex-column justify-content-center align-items-center bg-white shadow-sm rounded border p-3  mr-3">
                 <i class="fa fa-2x d-block fa-tachometer" aria-hidden="true"></i>
                 系统配置
-            </div>
+            </a>
         </section>
     </div>
 @endsection
