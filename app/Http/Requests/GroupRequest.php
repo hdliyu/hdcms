@@ -24,7 +24,6 @@ class GroupRequest extends FormRequest
      */
     public function rules()
     {
-        dd(request()->group);
         return [
             'title'=>['required','min:3','max:30',Rule::unique('groups')->ignore(request()->group)],
             'site_nums'=>['required','integer','min:1'],

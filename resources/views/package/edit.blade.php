@@ -26,6 +26,6 @@
 @push('js')
     <script>
         window.modules = @json($modules);
-        window.selected = @json($package->module->pluck('id'))
+        window.selected = @json($package->modules->pluck('id'))
     </script>
 @endpush

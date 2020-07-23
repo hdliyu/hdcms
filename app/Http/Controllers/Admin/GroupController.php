@@ -33,16 +33,19 @@ class GroupController extends Controller
     public function edit(Group $group)
     {
         $packages = Package::all();
-        return view('group.create',compact('packages','group'));
+        return view('group.edit',compact('packages','group'));
     }
 
-    public function update(Request $request, Group $group)
+    public function update(GroupRequest $request, Group $group)
     {
-
+        $group->fill($request->input())->save();
+        $group->packages()->sync($request->input('packages'));
+        return redirect()->route('admin.group.index')->with('success','用户组修改成功');
     }
 
     public function destroy(Group $group)
     {
-
+        $group->delete();
+        return response()->json(['message'=>'用户组删除成功']);
     }
 }
