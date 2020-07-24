@@ -34,7 +34,7 @@ Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
     Route::post('register/code','RegisterController@code')->middleware(['throttle:1,1']);
 });
 
-Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth','as'=>'admin.'],function (){
+Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admin'],'as'=>'admin.'],function (){
     Route::get('/','HomeController@index')->name('index');
     Route::get('system', 'HomeController@setting')->name('setting');
 
@@ -49,4 +49,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>'auth','as'=>
 
     Route::get('config','ConfigController@edit')->name('config.edit');
     Route::put('config','ConfigController@update')->name('config.update');
+    Route::post('config','ConfigController@upload')->name('config.upload');
+
+    Route::get('my','MyController@edit')->name('my.edit');
+    Route::put('my','MyController@update')->name('my.update');
 });

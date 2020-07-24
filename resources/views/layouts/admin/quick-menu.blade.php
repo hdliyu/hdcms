@@ -1,6 +1,6 @@
 <div class="quick-menu d-flex justify-content-between align-items-center m-3 pt-5">
     <div class="logo">
-        <img src="/images/logo.png" alt="">
+        <img src="{{config('admin.logo')}}" alt="">
     </div>
     <div class="menus d-flex">
         <a href="{{route('admin.index')}}"

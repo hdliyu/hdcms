@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="mb-5">
         <h6 class="mb-3 pl-3 bl-5">应用扩展</h6>
@@ -15,7 +14,7 @@
     <div class="mb-5">
         <h6 class="mb-3 pl-3 bl-5">用户管理</h6>
         <section class="d-flex">
-            <a
+            <a href="{{route('admin.my.edit')}}"
                 class="system-menu d-flex flex-column justify-content-center align-items-center bg-white shadow-sm rounded border p-3  mr-3">
                 <i class="fa fa-2x d-block fa-briefcase" aria-hidden="true"></i>
                 我的帐户

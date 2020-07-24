@@ -14,7 +14,7 @@ class ConfigSeeder extends Seeder
     {
         Config::create(['config'=>[
                'title'=>'后盾人',
-               'logo'=>'images/logo.png',
+               'logo'=>'/images/logo.png',
                'copyright'=>'后盾人 人人做后盾<br>Powerd by hdcms v6 2014-2020 www.hdcms.com',
         ]]);
     }

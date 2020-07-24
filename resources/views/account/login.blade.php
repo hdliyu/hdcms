@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <x-input title="账号" type="text" name="account" placeholder="请输入邮箱或手机号" v-model="account"></x-input>
                     <x-input title="密码" type="password" name="password" placeholder="请输入登录密码" v-model="password"></x-input>
-                    <x-input component="captcha" v-model="captcha"></x-input>
+                    <x-input theme="captcha" v-model="captcha"></x-input>
                     <label for="remember"><input type="checkbox" name="remember"> 记住我</label>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-between align-items-center">
