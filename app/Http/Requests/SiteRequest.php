@@ -25,7 +25,7 @@ class SiteRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'between:3,30', Rule::unique('sites')->ignore(request()->site)],
+            'title' => ['required', 'between:2,30', Rule::unique('sites')->ignore(request()->site)],
             'domain' => ['required', 'url', Rule::unique('sites')->ignore(request()->site)],
         ];
     }

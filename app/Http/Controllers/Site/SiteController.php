@@ -17,8 +17,8 @@ class SiteController extends Controller
     public function index()
     {
 //        $sites = user()->isSuperAdmin ? Site::all() : user()->allSites;
-//
-//        return view('site.index', compact('sites'));
+        $sites = Site::all();
+        return view('site.index', compact('sites'));
     }
 
     public function create(Site $site)
@@ -43,7 +43,6 @@ class SiteController extends Controller
     public function update(Request $request, Site $site)
     {
         $site->fill($request->input())->save();
-
         return redirect()->route('admin')->with('success', '站点修改成功');
     }
 

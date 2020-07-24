@@ -22,7 +22,7 @@
         <button class="btn btn-primary mt-3">保存</button>
     </form>
 @endsection
-@push('js')
+@push('scripts')
     <script>
         window.modules = @json($modules)
     </script>

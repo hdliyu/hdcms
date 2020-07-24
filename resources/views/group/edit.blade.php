@@ -7,7 +7,7 @@
         @include('group.form')
     </form>
 @endsection
-@push('js')
+@push('scripts')
     <script>
         window.packages = @json($packages)
     </script>

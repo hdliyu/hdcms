@@ -6,7 +6,7 @@
         </a>
         <a class="nav-link active" href="#">编辑站点</a>
     </nav>
-    <form action="{{ route('admin.site.update') }}" method="post">
+    <form action="{{ route('site.site.update',$site) }}" method="post">
         @csrf
         @method('PUT')
         @include('site.form')

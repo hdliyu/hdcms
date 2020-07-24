@@ -17,4 +17,14 @@ class Site extends Model
     {
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
+
+    public function admins()
+    {
+        return $this->belongsToMany(User::class,'admin_site');
+    }
 }

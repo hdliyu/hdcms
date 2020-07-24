@@ -1,14 +1,15 @@
 <template>
-    <a href="#" @click.prevent="del" class="btn btn-secondary btn-sm">
-        {{title}}
+    <a href="#" @click.prevent="del" :class="className">
+        <slot>{{title}}</slot>
     </a>
 </template>
 
 <script>
     export default {
         props: {
-            title:{ default:'删除'},
+            title: {default:'删除'},
             action: { required: true, type: String },
+            className: {default:'btn btn-secondary btn-sm'}
         },
         methods: {
             del($event) {

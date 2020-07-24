@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function getAvatarAttribute()
+    {
+        return $this->avatar??'/images/avatar.jpg';
+    }
 }

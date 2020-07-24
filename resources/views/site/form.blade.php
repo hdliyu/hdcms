@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <x-input name="title" required title="站点名称" value="{{ $site['title']??'' }}"></x-input>
-        <x-input name="domain" required title="域名" value="{{ $site['domain']??'' }}"></x-input>
+        <x-input name="domain" required title="域名" value="{{ $site['domain']??'http://' }}"></x-input>
     </div>
 </div>
 <div class="card mt-3">
@@ -28,7 +28,7 @@
                         </div>
                         <div class="card-footer text-muted text-center">
                             <label>
-                                <input type="radio" hidden name="module_id" value="{{ $module['id'] }}">
+                                <input type="radio" hidden name="module_id" value="{{ $module['id'] }}" @if($site->module_id===$module->id) checked @endif>
                                 <span class="btn btn-secondary btn-sm">设置为默认</span>
                             </label>
                         </div>
@@ -44,6 +44,7 @@
     <style>
         input[name='module_id']:checked+span {
             background: #EA4A57;
+            border-color: transparent;
         }
     </style>
 @endpush

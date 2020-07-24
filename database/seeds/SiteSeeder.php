@@ -18,5 +18,9 @@ class SiteSeeder extends Seeder
             'config' => [],
             'user_id' => 1
         ]);
+        DB::table('admin_site')->insert([
+            'user_id'=>2,
+            'site_id'=>1,
+        ]);
     }
 }

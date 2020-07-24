@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -37,7 +38,7 @@ Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
 Route::get('/admin','Site\SiteController@index')->name('admin')->middleware(['auth','admin']);
 
 Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admin'],'as'=>'admin.'],function (){
-    Route::get('system', 'HomeController@setting')->name('setting');
+    Route::view('system', 'system.setting')->name('setting');
 
     Route::get('module','ModuleController@index')->name('module.index');
     Route::get('module/installed','ModuleController@installed')->name('module.installed');
@@ -46,6 +47,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admi
     Route::delete('module/uninstall/{module:name}','ModuleController@uninstall')->name('module.uninstall');
 
     Route::resource('package','PackageController');
+
     Route::resource('group','GroupController');
 
     Route::get('config','ConfigController@edit')->name('config.edit');
@@ -56,6 +58,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admi
     Route::put('my','MyController@update')->name('my.update');
 });
 
-Route::group(['namespace'=>'Site','prefix'=>'site','middleware'=>['auth','admin'],'as'=>'admin.'],function (){
+Route::group(['namespace'=>'Site','prefix'=>'site','middleware'=>['auth','admin'],'as'=>'site.'],function (){
     Route::resource('site','SiteController');
+    Route::resource('{site}/admin','AdminController');
 });

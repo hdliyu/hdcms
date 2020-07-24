@@ -25,7 +25,7 @@
         <strong>{!! config('admin.copyright') !!}</strong>
     </div>
 </div>
-@stack('js')
+@stack('scripts')
 <script src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>

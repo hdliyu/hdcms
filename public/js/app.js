@@ -3570,6 +3570,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     action: {
       required: true,
       type: String
+    },
+    className: {
+      "default": 'btn btn-secondary btn-sm'
     }
   },
   methods: {
@@ -101144,7 +101147,7 @@ var render = function() {
   return _c(
     "a",
     {
-      staticClass: "btn btn-secondary btn-sm",
+      class: _vm.className,
       attrs: { href: "#" },
       on: {
         click: function($event) {
@@ -101153,7 +101156,8 @@ var render = function() {
         }
       }
     },
-    [_vm._v("\n    " + _vm._s(_vm.title) + "\n")]
+    [_vm._t("default", [_vm._v(_vm._s(_vm.title))])],
+    2
   )
 }
 var staticRenderFns = []
@@ -115083,7 +115087,7 @@ files.keys().map(function (key) {
 
 var app = new Vue({
   el: '#app',
-  mixins: [window.hd || {}],
+  mixins: [window.vue || {}],
   store: _store__WEBPACK_IMPORTED_MODULE_0__["default"]
 });
 
@@ -115734,8 +115738,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\hdcms\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\hdcms\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\liyu\code\hdcms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\liyu\code\hdcms\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

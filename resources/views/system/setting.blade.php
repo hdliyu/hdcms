@@ -32,7 +32,7 @@
         </section>
     </div>
 
-    <a class="mb-5">
+    <div class="mb-5">
         <h6 class="mb-3 pl-3 bl-5">系统管理</h6>
         <section class="d-flex">
             <a href="{{route('admin')}}"

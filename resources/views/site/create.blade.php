@@ -6,7 +6,7 @@
         </a>
         <a class="nav-link active" href="#">添加站点</a>
     </nav>
-    <form action="{{ route('admin.site.store') }}" method="post">
+    <form action="{{ route('site.site.store') }}" method="post">
         @csrf
         @include('site.form')
     </form>
