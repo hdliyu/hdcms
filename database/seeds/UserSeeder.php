@@ -16,12 +16,14 @@ class UserSeeder extends Seeder
         $user->name = 'hdliyu';
         $user->password = 'admin888';
         $user->email = '278746453@qq.com';
+        $user->group_id = 2;
         $user->save();
 
         $user = User::find(2);
         $user->name = 'lisi';
         $user->password = 'admin888';
         $user->email = '278746454@qq.com';
+        $user->group_id = 1;
         $user->save();
     }
 }

@@ -145,6 +145,7 @@ return [
     */
 
     'attributes' => [
+        'domain'                =>'域名',
         'site_nums'             =>'站点数量',
         'days'                  =>'可用天数',
         'account'               => '账号',

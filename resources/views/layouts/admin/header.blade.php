@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item mr-3">
-                <a class="nav-link" href="{{route('admin.index')}}"><i class="fa fa-sitemap" aria-hidden="true"></i> 站点管理</a>
+                <a class="nav-link" href="{{route('admin')}}"><i class="fa fa-sitemap" aria-hidden="true"></i> 站点管理</a>
             </li>
             <li class="nav-item mr-3">
                 <a class="nav-link" href="{{route('admin.module.index')}}"><i class="fa fa-cubes" aria-hidden="true"></i> 模块管理</a>

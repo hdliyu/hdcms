@@ -34,7 +34,7 @@
                     <td>{{$package['title']}}</td>
                     <td>
                         @foreach($package->modules as $module)
-                            <span class="badge badge-primary mr-2">{{$module['title']}}</span>
+                            <span class="badge badge-info mr-2">{{$module['title']}}</span>
                         @endforeach
                     </td>
                 </tr>

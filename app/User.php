@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'mobile', 'github', 'qq', 'weibo',
+        'name', 'email', 'password', 'mobile', 'github', 'qq', 'weibo','group_id',
     ];
 
     /**
@@ -45,8 +45,8 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
-    public function groups()
+    public function group()
     {
-        return $this->belongsToMany(Group::class,'group_user');
+        return $this->belongsTo(Group::class);
     }
 }

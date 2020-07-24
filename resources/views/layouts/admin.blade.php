@@ -9,7 +9,7 @@
     <title>@yield('title',config('admin.title'))</title>
     <link rel="stylesheet" href="{{mix('/css/app.css')}}">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    @stack('style')
+    @stack('styles')
 </head>
 <body>
 <div class="system">

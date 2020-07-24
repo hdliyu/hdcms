@@ -34,8 +34,9 @@ Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
     Route::post('register/code','RegisterController@code')->middleware(['throttle:1,1']);
 });
 
+Route::get('/admin','Site\SiteController@index')->name('admin')->middleware(['auth','admin']);
+
 Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admin'],'as'=>'admin.'],function (){
-    Route::get('/','HomeController@index')->name('index');
     Route::get('system', 'HomeController@setting')->name('setting');
 
     Route::get('module','ModuleController@index')->name('module.index');
@@ -53,4 +54,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admi
 
     Route::get('my','MyController@edit')->name('my.edit');
     Route::put('my','MyController@update')->name('my.update');
+});
+
+Route::group(['namespace'=>'Site','prefix'=>'site','middleware'=>['auth','admin'],'as'=>'admin.'],function (){
+    Route::resource('site','SiteController');
 });
