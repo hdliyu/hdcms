@@ -1,11 +1,4 @@
 <?php
-
-use App\Http\Controllers\Common\VerificationCodeController;
-use App\Notifications\VerificationCodeNotification;
-use App\Services\CodeService;
-use App\User;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -41,8 +33,6 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admi
     Route::view('system', 'system.setting')->name('setting');
 
     Route::get('module','ModuleController@index')->name('module.index');
-    Route::get('module/installed','ModuleController@installed')->name('module.installed');
-    Route::get('module/uninstalled','ModuleController@uninstalled')->name('module.uninstalled');
     Route::get('module/install/{name}','ModuleController@install')->name('module.install');
     Route::delete('module/uninstall/{module:name}','ModuleController@uninstall')->name('module.uninstall');
 

@@ -138,7 +138,10 @@ return [
     */
 
     'providers' => [
-
+        /*
+       * Laravel Framework IDE Hepler...
+       */
+//        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -169,6 +172,7 @@ return [
          * Package Service Providers...
          */
         Mews\Captcha\CaptchaServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -178,7 +182,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
-        HieuLe\Active\ActiveServiceProvider::class,
     ],
 
     /*
