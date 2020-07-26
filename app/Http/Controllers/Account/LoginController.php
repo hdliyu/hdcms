@@ -20,8 +20,7 @@ class LoginController extends Controller
             'account'=>['required',$this->validateAccountField()],
             'password'=>['required','min:3'],
             'captcha'=>['required','captcha'],
-        ]
-        );
+        ]);
         $isLogin =  Auth::attempt([$this->username() => $request->account, 'password' => $request->password], (bool) $request->remember);
         if ($isLogin) {
             return redirect()->intended('/admin');

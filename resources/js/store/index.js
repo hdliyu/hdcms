@@ -5,8 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    errors: {},
-    name: 'sina.com'
+    errors: {}
   },
   mutations: {
     setErrors(state, errors) {
