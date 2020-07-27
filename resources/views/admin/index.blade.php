@@ -28,39 +28,28 @@
                 <td class="align-middle">{{ $admin['mobile'] }}</td>
                 <td class="align-middle text-right pr-2">
                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <a href="" class="btn btn-info">设置角色</a>
-                        <btn-del action="">删除</btn-del>
+                        <a href="#" class="btn btn-info">设置角色</a>
+                        <btn-del action="{{ route('site.admin.destroy',[$site,$admin]) }}">删除</btn-del>
                     </div>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    <button class="btn btn-info btn-sm" @click="dialogVisible=true">添加管理员</button>
-    <el-dialog
-        title="提示"
-        :visible.sync="dialogVisible"
-        width="30%"
-        :before-close="handleClose">
-        <span>这是一段信息</span>
-        <span slot="footer" class="dialog-footer">
-    <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-  </span>
-    </el-dialog>
+    <admin-search action="{{route('site.admin.search',$site)}}"  v-slot="{user}" title="添加管理员">
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <a :href="'/site/{{ $site['id'] }}/admin/add/'+user.id" class="btn btn-info">设为管理员</a>
+        </div>
+    </admin-search>
 @endsection
 @push('scripts')
     <script>
         window.vue = {
             data() {
                 return {
-                    dialogVisible: false
                 };
             },
             methods: {
-                handleClose(done) {
-                    done();
-                }
             }
         }
     </script>

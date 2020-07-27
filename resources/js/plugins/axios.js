@@ -16,6 +16,11 @@ Object.defineProperties(Vue.prototype,{
         get(){
             return _axios
         }
+    },
+    $axios:{
+        get() {
+            return _axios
+        }
     }
 })
 _axios.interceptors.request.use(
@@ -29,11 +34,13 @@ _axios.interceptors.request.use(
 )
 _axios.interceptors.response.use(function (response) {
     loading.close()
-    Message({
-        message:response.data.message,
-        type:'success',
-    })
-    return response
+    if(response.data.message){
+        Message({
+            message:response.data.message,
+            type:'success',
+        })
+    }
+    return response.data
 }, function (error) {
     loading.close()
     let status = error.response.status

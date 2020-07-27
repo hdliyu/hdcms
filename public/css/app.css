@@ -10937,6 +10937,10 @@ a {
   color: #333;
 }
 
+.hand {
+  cursor: pointer;
+}
+
 .w35 {
   width: 35px;
 }

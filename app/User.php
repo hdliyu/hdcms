@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->avatar??'/images/avatar.jpg';
     }
+
+    public function scopeSearch($query, $name)
+    {
+        if (empty($name))
+            return $query;
+        return $query->orWhere('name', 'like', "%{$name}%")
+            ->orWhere('email', 'like', "%{$name}%")
+            ->orWhere('mobile', 'like', "%{$name}%")
+            ->orWhere('id', $name);
+    }
 }
