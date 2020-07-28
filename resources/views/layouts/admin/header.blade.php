@@ -19,7 +19,8 @@
             </li>
         </ul>
         <div class="dropdown ">
-            <div class="text-white dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-white dropdown-toggle hand" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{{user('avatar')}}" class="rounded-circle w35">
                 {{user('name')}}
             </div>
             <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="dropdownMenuButton">

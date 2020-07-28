@@ -46,7 +46,7 @@
                                 class="fa fa-user-circle-o"></i>
                             管理员设置
                         </a>
-                        <a href="" class="text-muted mr-2">
+                        <a href="{{route('site.role.index',$site)}}" class="text-muted mr-2">
                             <i class="fa fa-user-secret" aria-hidden="true"></i>
                             角色管理
                         </a>

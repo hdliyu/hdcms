@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Module as Model;
-use Nwidart\Modules\Facades\Module;
+use App\Models\Site;
 
 class ModuleService
 {
@@ -22,17 +22,30 @@ class ModuleService
         });
     }
 
-    public function find($name)
+    public function find(string $name)
     {
-        $module = Module::find($name);
-        $config = include $module->getPath().'/Config/config.php';
-        $module = Model::where('name',$name)->first();
-        return $config+[
-                'id'=>$module['id']??0,
-                'installed'=>(bool)$module,
-                'module'=>$module,
-                'preview'=>'/modules/'.$name.'/static/preview.jpg'
+        $module = \Module::find($name);
+        $config = $this->config($module, 'config');
+        $model = Model::where('name', $name)->first();
+        return $config + [
+                'preview' => '/modules/' . $name . '/static/preview.jpg',
+                'id' => $model['id'] ?? 0,
+                'menus' => $this->config($module, 'menus'),
+                'installed' => (bool) $model,
+                'module' => $module
             ];
+    }
+
+    protected function config($module, $name)
+    {
+        return include $module->getPath() . '/Config/' . $name . '.php';
+    }
+
+    public function getSiteModules(Site $site)
+    {
+        return $site->master->group->modules->map(function ($module) {
+            return $this->find($module['name']);
+        });
     }
 
 }

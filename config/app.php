@@ -141,7 +141,7 @@ return [
         /*
        * Laravel Framework IDE Hepler...
        */
-//        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -173,6 +173,7 @@ return [
          */
         Mews\Captcha\CaptchaServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Application Service Providers...
          */

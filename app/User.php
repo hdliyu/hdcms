@@ -7,10 +7,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens,Notifiable;
+    use HasApiTokens,Notifiable,HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -63,5 +64,25 @@ class User extends Authenticatable
             ->orWhere('email', 'like', "%{$name}%")
             ->orWhere('mobile', 'like', "%{$name}%")
             ->orWhere('id', $name);
+    }
+
+    public function sites()
+    {
+        return $this->hasMany(Site::class);
+    }
+
+    public function adminSites()
+    {
+        return $this->belongsToMany(Site::class, 'admin_site');
+    }
+
+    public function getAllSitesAttribute()
+    {
+        return $this->sites->merge($this->adminSites);
+    }
+
+    public function getIsSuperAdminAttribute()
+    {
+        return $this->id === 1;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Role;
 
 class Site extends Model
 {
@@ -26,5 +27,10 @@ class Site extends Model
     public function admins()
     {
         return $this->belongsToMany(User::class,'admin_site')->withTimestamps();
+    }
+
+    public function roles()
+    {
+        return $this->hasMany(Role::class);
     }
 }

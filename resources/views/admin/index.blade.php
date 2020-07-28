@@ -28,7 +28,7 @@
                 <td class="align-middle">{{ $admin['mobile'] }}</td>
                 <td class="align-middle text-right pr-2">
                     <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <a href="#" class="btn btn-info">设置角色</a>
+                        <a href="{{ route('site.admin.role',[$site,$admin]) }}" class="btn btn-info">设置角色</a>
                         <btn-del action="{{ route('site.admin.destroy',[$site,$admin]) }}">删除</btn-del>
                     </div>
                 </td>
@@ -42,15 +42,3 @@
         </div>
     </admin-search>
 @endsection
-@push('scripts')
-    <script>
-        window.vue = {
-            data() {
-                return {
-                };
-            },
-            methods: {
-            }
-        }
-    </script>
-@endpush

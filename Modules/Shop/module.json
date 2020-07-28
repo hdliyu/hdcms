@@ -1,0 +1,12 @@
+{
+    "name": "Shop",
+    "alias": "shop",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
