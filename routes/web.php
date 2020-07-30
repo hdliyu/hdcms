@@ -58,4 +58,5 @@ Route::group(['namespace'=>'Site','prefix'=>'site','middleware'=>['auth','admin'
     Route::put('{site}/admin/role/{user}', 'AdminController@updateRole')->name('admin.role.update');
     Route::get('{site}/permission/{role}','PermissionController@edit')->name('permission.edit');
     Route::put('{site}/permission/{role}','PermissionController@update')->name('permission.update');
+    Route::get('{site}/module', 'ModuleController@index')->name('module.index');
 });

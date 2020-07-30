@@ -10,6 +10,10 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Site::class, 'site');
+    }
 
     public function index(Site $site)
     {

@@ -5,19 +5,19 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Account\Controller;
 use App\Http\Requests\SiteRequest;
 use App\Models\Site;
+use App\User;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
     public function __construct()
     {
-        //$this->authorizeResource(Site::class, 'site');
+        $this->authorizeResource(Site::class, 'site');
     }
 
     public function index()
     {
-//        $sites = user()->isSuperAdmin ? Site::all() : user()->allSites;
-        $sites = Site::all();
+        $sites = user()->isSuperAdmin ? Site::all() : user()->allSites;
         return view('site.index', compact('sites'));
     }
 
@@ -37,6 +37,7 @@ class SiteController extends Controller
 
     public function edit(Site $site)
     {
+//        $this->authorize('update',$site);
         return view('site.edit', compact('site'));
     }
 

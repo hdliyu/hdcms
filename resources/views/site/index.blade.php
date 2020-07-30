@@ -11,9 +11,9 @@
                             <span class="badge badge-info mr-2">{{$package['title']}}</span>
                         @endforeach
                     </div>
-                    <div>
+                    <a href="{{route('site.module.index',$site)}}">
                         <i class="fa fa-cog" aria-hidden="true"></i> 应用扩展
-                    </div>
+                    </a>
                 </div>
                 <div class="card-body">
                     <i class="fa fa-rss fa-3x mr-3" aria-hidden="true"></i>
@@ -35,7 +35,8 @@
                                 访问首页
                             </a>
                         @endif
-                        <a href="/site/1/config" class="text-muted mr-2">
+                        @can('update',$site)
+                            <a href="/site/1/config" class="text-muted mr-2">
                             <i aria-hidden="true" class="fa fa-check-circle-o"></i>
                             网站配置
                         </a>
@@ -50,15 +51,15 @@
                             <i class="fa fa-user-secret" aria-hidden="true"></i>
                             角色管理
                         </a>
-                        <a href="{{ route('site.site.edit',$site) }}" class="text-muted mr-2">
-                            <i class="fa fa-pencil-square-o"></i>
-                            编辑
-                        </a>
-
-                        <btn-del action="{{ route('site.site.destroy',$site) }}" class-name="text-muted">
-                            <i class="fa fa-trash"></i>
-                            删除
-                        </btn-del>
+                            <a href="{{ route('site.site.edit',$site) }}" class="text-muted mr-2">
+                                <i class="fa fa-pencil-square-o"></i>
+                                编辑
+                            </a>
+                            <btn-del action="{{ route('site.site.destroy',$site) }}" class-name="text-muted">
+                                <i class="fa fa-trash"></i>
+                                删除
+                            </btn-del>
+                        @endcan
                     </div>
                 </div>
             </div>

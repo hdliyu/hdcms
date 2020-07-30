@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Site;
+use App\Policies\SitePolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+//        Site::class=>SitePolicy::class,
     ];
 
     /**
@@ -24,7 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
+        Gate::guessPolicyNamesUsing(function ($modelClass) {
+            return str_replace('Models','Policies',$modelClass).'Policy';
+        });
     }
 }

@@ -13,7 +13,7 @@ class PermissionController extends Controller
 {
     public function __construct()
     {
-//        $this->authorizeResource(Site::class, 'site');
+        $this->authorizeResource(Site::class, 'site');
     }
 
     public function edit(Site $site,Role $role,ModuleService $moduleService,PermissionService $permissionService)
