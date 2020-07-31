@@ -38,4 +38,16 @@ class PermissionService
             })->count();
         })->count();
     }
+
+    public function menuGroupAccess(Site $site, $module, array $menu)
+    {
+        if ($site->user_id == user('id') || user()->isSuperAdmin) {
+            return true;
+        }
+
+        return (bool)collect($menu['items'])->filter(function ($item) use ($site, $module) {
+            $name = permission_name($item['permission'], $site, $module);
+            return user()->hasPermissionTo($name);
+        })->count();
+    }
 }

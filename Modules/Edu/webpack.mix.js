@@ -1,15 +1,15 @@
-const dotenvExpand = require('dotenv-expand');
-dotenvExpand(require('dotenv').config({ path: '../../.env'/*, debug: true*/}));
+const dotenvExpand = require('dotenv-expand')
+dotenvExpand(require('dotenv').config({ path: '../../.env' /*, debug: true*/ }))
 
-const mix = require('laravel-mix');
-require('laravel-mix-merge-manifest');
+const mix = require('laravel-mix')
+require('laravel-mix-merge-manifest')
 
-mix.setPublicPath('../../public').mergeManifest();
+mix.setPublicPath('../../public').mergeManifest()
 
-mix.js(__dirname + '/Resources/assets/js/app.js', 'js/edu.js')
-    .sass( __dirname + '/Resources/assets/sass/app.scss', 'css/edu.css')
-    .copyDirectory(__dirname + '/Resources/static', '../../public/modules/Edu/static');
+mix.js(__dirname + '/Resources/js/app.js', 'modules/Edu/app.js')
+    .sass(__dirname + '/Resources/sass/app.scss', 'modules/Edu/app.css')
+    .copyDirectory(__dirname + '/Resources/static', '../../public/modules/Edu/static')
 
 if (mix.inProduction()) {
-    mix.version();
+    mix.version()
 }

@@ -16,8 +16,8 @@ class ModuleController extends Controller
 
     public function entry(Site $site, $moduleName)
     {
-        site($site);
-        module($moduleName);
+        site($site);            //缓存当前要操作的站点
+        module($moduleName);    //缓存当前要操作的模块
         return redirect($moduleName . '/admin');
     }
 

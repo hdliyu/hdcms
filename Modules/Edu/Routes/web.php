@@ -11,12 +11,6 @@
 |
 */
 
-Route::prefix('edu')->group(function() {
-    Route::get('/', 'EduController@index');
-});
-
-Route::group(['prefix'=>'Edu/admin'],function(){
-    Route::get('/',function(){
-        return 'edu amin...';
-    });
+Route::group(['prefix' => 'Edu/admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin', 'as' => 'edu.admin.'], function () {
+    Route::get('/', 'AdminController@index')->name('index');
 });
