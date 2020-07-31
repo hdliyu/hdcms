@@ -28,6 +28,9 @@ class AdminController extends Controller
 
     public function destroy(Site $site, User $admin)
     {
+        $site->roles->map(function ($role) use ($admin) {
+            $admin->removeRole($role['name']);
+        });
         $site->admins()->detach([$admin['id']]);
         return response()->json(['message' => '删除成功']);
     }

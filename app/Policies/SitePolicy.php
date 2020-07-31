@@ -17,7 +17,7 @@ class SitePolicy
         }
         $site = request()->site ?? $site;
         if (is_object($site)) {
-            return $user['id'] === $site->master->id;
+            return $site->user_id == $user->id;
         }
     }
 

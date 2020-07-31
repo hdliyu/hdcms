@@ -1,8 +1,15 @@
 @extends('layouts.admin')
 @section('content')
     <div>
-        <a href="{{route('site.site.create')}}" class="btn btn-info mb-3"><i class="fa fa-plus" aria-hidden="true"></i>
+        <div class="d-flex align-items-center mb-3">
+        <a href="{{route('site.site.create')}}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i>
             添加网站</a>
+        @if(user()->isSuperAdmin)
+            <span class="text-secondary ml-3">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> 您是超级管理员
+            </span>
+        @endif
+        </div>
         @foreach($sites as $site)
             <div class="card mb-3 shadow-sm">
                 <div class="card-header d-flex justify-content-between">
@@ -21,6 +28,7 @@
                 </div>
                 <div class="card-footer text-muted d-flex flex-column flex-sm-row justify-content-between">
                     <div class="small mb-2">
+                        #{{$site['id']}}
                         创建时间: {{$site['created_at']}}
                         站长: {{$site->master->name}}
                         所属组: {{$site->master->group->title}}
