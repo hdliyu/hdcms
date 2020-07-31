@@ -14,4 +14,11 @@ class ModuleController extends Controller
         return view('site_module.index',compact('site'));
     }
 
+    public function entry(Site $site, $moduleName)
+    {
+        site($site);
+        module($moduleName);
+        return redirect($moduleName . '/admin');
+    }
+
 }

@@ -15,7 +15,7 @@
                 </span>
                         </div>
                         <div class="card-footer text-muted text-center">
-                            <a href="#" class="btn btn-info btn-sm">管理模块</a>
+                            <a href="{{ route('site.module.entry',[$site,$module['name']]) }}" class="btn btn-info btn-sm">管理模块</a>
                         </div>
                     </div>
                 </div>

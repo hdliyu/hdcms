@@ -5,6 +5,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            @if (session('module'))
+                <li class="nav-item mr-3">
+                    <a class="nav-link" href="/{{ session('module')['name'] }}/admin">
+                        <i class="fa fa-reply" aria-hidden="true"></i> 继续管理{{ session('module')['title'] }}模块
+                    </a>
+                </li>
+            @endif
             <li class="nav-item mr-3">
                 <a class="nav-link" href="{{route('admin')}}"><i class="fa fa-sitemap" aria-hidden="true"></i> 站点管理</a>
             </li>
