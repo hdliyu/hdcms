@@ -13,4 +13,9 @@
 
 Route::group(['prefix' => 'Edu/admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin', 'as' => 'edu.admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
+    Route::resource('tag', 'TagController');
+    Route::resource('lesson', 'LessonController');
+    Route::resource('system', 'SystemController');
+    Route::post('system-search', 'LessonController@search')->name('lesson.search');
+    Route::resource('subscribe', 'SubscribeController');
 });

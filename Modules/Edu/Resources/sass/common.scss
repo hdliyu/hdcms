@@ -1,13 +1,39 @@
 :root {
-    font-size: 15px;
+  font-size: 15px !important;
+}
+body {
+  font-size: 0.9rem;
 }
 a {
-    text-decoration: none !important;
-    color: #333;
+  text-decoration: none !important;
+  color: #333;
 }
-.hand{
-    cursor: pointer;
+.avatar25 {
+  width: 25px;
+  height: 25px;
+}
+.avatar35 {
+  width: 35px;
+  height: 35px;
+}
+.avatar45 {
+  width: 45px;
+  height: 45px;
 }
 .w35 {
-    width: 35px;
+  width: 35px;
+}
+.w45 {
+  width: 45px;
+  height: 45px;
+}
+.sidebar .nav-item .collapse .collapse-inner {
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar .nav-item .nav-link span {
+    font-size: 0.9rem;
+    display: inline;
+  }
 }

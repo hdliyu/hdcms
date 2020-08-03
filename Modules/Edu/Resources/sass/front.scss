@@ -1,0 +1,46 @@
+.front {
+  font-size: 1.1rem;
+  background: #f9f9f9;
+  .header {
+    border-bottom: solid 4px #41a8a5;
+  }
+  .markdown {
+    pre {
+      code {
+        white-space: break-spaces;
+      }
+    }
+    table,
+    th,
+    td,
+    thead,
+    tfoot {
+      border: solid 1px #ddd;
+      padding: 1rem;
+    }
+    table {
+      margin-bottom: 1rem;
+    }
+    thead {
+      background: rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+.edu-front-lesson-index {
+  .lesson {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.edu-front-video-show {
+  .video {
+    background: #22262f;
+    video {
+      width: 100%;
+      outline: none;
+    }
+  }
+}
