@@ -9,4 +9,9 @@ class Tag extends Model
     protected $fillable = ['title','site_id'];
 
     protected $table = 'edu_tags';
+
+    public function lessons()
+    {
+        return $this->belongsToMany(Lesson::class);
+    }
 }
