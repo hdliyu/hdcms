@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Edu\Entities\Lesson;
 use Modules\Edu\Entities\Tag;
+use Modules\Edu\Http\Requests\LessonRequest;
 
 class LessonController extends Controller
 {
@@ -29,8 +30,8 @@ class LessonController extends Controller
 
     public function store(LessonRequest $request, Lesson $lesson)
     {
-//        $this->updateLesson($request, $lesson);
-//        return redirect()->route('edu.admin.lesson.index')->with('success', '课程保存成功');
+        $this->updateLesson($request, $lesson);
+        return redirect()->route('edu.admin.lesson.index')->with('success', '课程保存成功');
     }
 
     protected function updateLesson($request, Lesson $lesson)
@@ -40,18 +41,14 @@ class LessonController extends Controller
         $lesson->site_id = site()['id'];
         $lesson->user_id = user('id');
         $lesson->save();
-
         $lesson->tags()->sync($request->tags);
-
         $this->updateVideos($request, $lesson);
     }
 
     protected function updateVideos($request, $lesson)
     {
         $videos = json_decode($request->videos, true);
-
         $lesson->videos()->whereNotIn('id', collect($videos)->pluck('id'))->delete();
-
         foreach ($videos as $i => $video) {
             if ($video['title'] && $video['path']) {
                 $lesson->videos()->updateOrCreate([
@@ -59,7 +56,6 @@ class LessonController extends Controller
                 ], array_merge($video, ['rank' => $i, 'site_id' => site()['id']]));
             }
         }
-
         $lesson['video_num'] = $lesson->videos->count();
         $lesson->save();
     }

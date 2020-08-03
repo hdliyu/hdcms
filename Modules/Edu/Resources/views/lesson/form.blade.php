@@ -15,10 +15,10 @@
         </div>
         <x-input theme="textarea" title="视频介绍" name="description" require>{{ $lesson['description'] }}</x-input>
         <x-input theme="image" title="网站标志" name="thumb" action="{{ route('common.upload') }}"
-                value="{{ $lesson['thumb'] }}"></x-input>
-        <div class="input-group">
-            <label>上架</label>
-            <input type="checkbox" name="status" {{ $lesson['status']?'checked':'' }}>
+                image="{{ $lesson['thumb'] }}"></x-input>
+        <div class="form-group">
+            <input type="checkbox" name="status" {{ $lesson['status']?'checked':'' }} id="status">
+            <label for="status">上架</label>
         </div>
 
         <x-input title="视频下载地址" name="download_address" require value="{{ $lesson['download_address'] }}"></x-input>

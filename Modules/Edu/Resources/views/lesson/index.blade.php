@@ -6,13 +6,13 @@
         <tr>
             <th>编号</th>
             <th>课程名称</th>
-            <th>上架</th>
+            <th class="text-center">上架</th>
             <th>标签</th>
             <th>点赞数</th>
             <th>收藏数</th>
             <th>视频数量</th>
             <th>发布时间</th>
-            <th width="160"></th>
+            <th width="160">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -20,15 +20,13 @@
             <tr>
                 <td>{{ $lesson['id'] }}</td>
                 <td>{{ $lesson['title'] }}</td>
+                <td class="text-center">
+                        <i class="fa {{$lesson['status']?'fa-check text-success':'fa-times text-danger'}}"></i>
+                </td>
                 <td>
                     @foreach ($lesson->tags as $tag)
                         <span class="badge badge-info mr-2">{{ $tag['title'] }}</span>
                     @endforeach
-                </td>
-                <td>
-                    @if ($lesson['status'])
-                        <i class="fas fa-check    "></i>
-                    @endif
                 </td>
                 <td>{{ $lesson['favour_num'] }}</td>
                 <td>{{ $lesson['favorite_num'] }}</td>

@@ -145,6 +145,7 @@ return [
     */
 
     'attributes' => [
+        'thumb'                 =>'缩略图',
         'domain'                =>'域名',
         'site_nums'             =>'站点数量',
         'days'                  =>'可用天数',
