@@ -13,16 +13,15 @@
                 </label>
             @endforeach
         </div>
-        <x-input theme="textarea" title="视频介绍" name="description" require>{{ $lesson['description'] }}</x-input>
-        <x-input theme="image" title="网站标志" name="thumb" action="{{ route('common.upload') }}"
+        <x-input theme="textarea" title="课程介绍" name="description" require>{{ $lesson['description'] }}</x-input>
+        <x-input theme="image" title="课程标志" name="thumb" action="{{ route('common.upload') }}"
                 image="{{ $lesson['thumb'] }}"></x-input>
         <div class="form-group">
             <input type="checkbox" name="status" {{ $lesson['status']?'checked':'' }} id="status">
             <label for="status">上架</label>
         </div>
-
-        <x-input title="视频下载地址" name="download_address" require value="{{ $lesson['download_address'] }}"></x-input>
-        <x-input type="number" title="免费观看数量" name="free_num" require value="{{ $lesson['free_num'] }}"></x-input>
+        <x-input title="课程下载地址" name="download_address" require value="{{ $lesson['download_address'] }}"></x-input>
+        <x-input type="number" title="免费观看数量" name="free_num" require value="{{ $lesson['free_num']??0}}"></x-input>
     </div>
 </div>
 <lesson-videos></lesson-videos>

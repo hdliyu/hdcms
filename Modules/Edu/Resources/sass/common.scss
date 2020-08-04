@@ -20,6 +20,12 @@ a {
   width: 45px;
   height: 45px;
 }
+.hand{
+    cursor: pointer;
+}
+.drag:active{
+    cursor: move;
+}
 .w35 {
   width: 35px;
 }

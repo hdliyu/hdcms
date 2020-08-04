@@ -19,7 +19,7 @@ class LessonController extends Controller
 
     public function search(Request $request)
     {
-//        return Lesson::search($request->w)->limit(10)->get();
+        return Lesson::search($request->w)->limit(10)->get();
     }
 
     public function create(Lesson $lesson)

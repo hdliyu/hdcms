@@ -8,7 +8,7 @@ class Tag extends Model
 {
     protected $fillable = ['title','site_id'];
 
-    protected $table = 'edu_tags';
+    protected $table = 'edu_tag';
 
     public function lessons()
     {

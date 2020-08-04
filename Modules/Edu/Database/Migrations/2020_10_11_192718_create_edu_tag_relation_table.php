@@ -4,13 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EduTagRelationTable extends Migration
+//标签中间表
+class CreateEduTagRelationTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('edu_tag_relation', function (Blueprint $table) {

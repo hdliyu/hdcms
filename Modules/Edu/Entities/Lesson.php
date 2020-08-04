@@ -1,7 +1,7 @@
 <?php
 
 namespace Modules\Edu\Entities;
-
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
@@ -35,5 +35,9 @@ class Lesson extends Model
         return $this->whereHas('tags', function (Builder $query) use ($tag) {
             $query->where('title', $tag);
         });
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

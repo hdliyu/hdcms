@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Config;
+use App\Services\PermissionService;
 use Closure;
 
 class AdminMiddleware
