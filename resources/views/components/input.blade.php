@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="{{ $attributes['name'] }}">{{ $attributes['title'] }}</label>
-    <input type="{{ $attributes['type'] }}"
+    <input type="{{ $attributes['type']??'text'}}"
            class="form-control {{ $attributes['class']??'' }} @error( $attributes['name'] )is-invalid @enderror"
            name="{{ $attributes['name'] }}" id="{{ $attributes['name'] }}"
            placeholder="{{ $attributes['placeholder'] }}"

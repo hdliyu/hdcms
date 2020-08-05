@@ -12,7 +12,7 @@ class SystemController extends Controller
 {
     public function __construct()
     {
-         $this->authorizeResource(System::class, 'system');
+         //$this->authorizeResource(System::class, 'system');
     }
 
     public function index()
