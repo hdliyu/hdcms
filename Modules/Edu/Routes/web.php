@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.'],function(){
+    
+});
 Route::group(['prefix' => 'Edu/admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin', 'as' => 'edu.admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::resource('tag', 'TagController');
