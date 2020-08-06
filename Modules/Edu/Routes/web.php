@@ -10,9 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front'],function(){
-
+// 模块前台路由
+Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front.','namespace'=>'Front'],function(){
+    Route::get('/','HomeController@index')->name('home');
+    Route::resource('topic','TopicController');
 });
+
+
+// 模块后台路由
 Route::group(['prefix' => 'Edu/admin', 'middleware' => ['auth', 'admin'], 'namespace' => 'Admin', 'as' => 'edu.admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::resource('tag', 'TagController');
