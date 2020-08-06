@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <x-input name="title" required title="站点名称" value="{{ $site['title']??'' }}"></x-input>
-        <x-input name="domain" required title="域名" value="{{ $site['domain']??'http://' }}"></x-input>
+        <x-input theme="select" name="domain" required title="域名" value="{{ $site['domain'] }}" https="{{ $site['https']??'' }}" options="http,https"></x-input>
     </div>
 </div>
 <div class="card mt-3">

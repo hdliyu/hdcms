@@ -23,7 +23,8 @@ class FrontMiddleware
     public function init()
     {
         $info = parse_url(request()->url());
-        $site = Site::where('domain', 'regexp', 'https?://' . $info['host'])->firstOrFail();
+        $https = $info['scheme'] == 'https';
+        $site = Site::where('domain', $info['host'])->where('https',$https)->firstOrFail();
         site($site);
         module($site->module->name);
     }

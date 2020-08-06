@@ -8,7 +8,7 @@ use Spatie\Permission\Models\Role;
 
 class Site extends Model
 {
-    protected $fillable = ['title', 'domain', 'module_id'];
+    protected $fillable = ['title', 'https', 'domain', 'module_id'];
 
     protected $casts = [
         'config' => 'array'
