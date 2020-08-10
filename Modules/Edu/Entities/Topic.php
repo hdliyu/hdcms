@@ -30,7 +30,7 @@ class Topic extends Model
     public function getHtmlAttribute()
     {
         $Parsedown = new \Parsedown();
-        return $Parsedown->text($this->content);
+        return clean($Parsedown->text($this->content));
     }
 
     public function scopeSearch($query, $w = null)

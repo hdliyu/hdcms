@@ -4,7 +4,7 @@ namespace Modules\Edu\Http\Controllers\Front;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Modules\Edu\Entities\Tag;
 use Modules\Edu\Entities\Topic;
 use Modules\Edu\Http\Requests\TopicRequest;
@@ -15,7 +15,7 @@ class TopicController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'show']);
-        // $this->authorizeResource(Topic::class, 'topic');
+//        $this->authorizeResource(Topic::class, 'topic');
     }
 
     public function index(Request $request)
@@ -25,10 +25,10 @@ class TopicController extends Controller
     }
 
 
-    public function create()
+    public function create(Topic $topic)
     {
         $tags = Tag::all();
-        return view('edu::topic.create',compact('tags'));
+        return view('edu::topic.create',compact('tags','topic'));
     }
 
     public function store(TopicRequest $request,Topic $topic)
@@ -47,14 +47,14 @@ class TopicController extends Controller
 
     public function edit(Topic $topic)
     {
-        $this->authorize('update', $topic);
+//        $this->authorize('update', $topic);
         $tags = Tag::all();
         return view('edu::topic.edit', compact('topic', 'tags'));
     }
 
     public function update(Request $request, Topic $topic)
     {
-        $this->authorize('update', $topic);
+//        $this->authorize('update', $topic);
         $topic->fill($request->input())->save();
         $topic->tags()->sync($request->input('tags'));
         return redirect()->route('edu.front.topic.show', $topic)->with('success', '贴子修改成功');
@@ -62,10 +62,10 @@ class TopicController extends Controller
 
     public function destroy(Request $request, Topic $topic)
     {
-        $this->authorize('delete', $topic);
+//        $this->authorize('delete', $topic);
         $topic->delete();
-        if ($request->expectsJson())
-            return response()->json(['message' => '删除成功']);
+//        if ($request->expectsJson())
+//            return response()->json(['message' => '删除成功']);
         return redirect()->route('edu.front.topic.index');
     }
 }

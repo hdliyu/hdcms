@@ -8,10 +8,10 @@
                     会员登录
                 </div>
                 <div class="card-body">
-                    <x-input title="账号" type="text" name="account" placeholder="请输入邮箱或手机号" v-model="account"></x-input>
-                    <x-input title="密码" type="password" name="password" placeholder="请输入登录密码" v-model="password"></x-input>
-                    <x-input theme="captcha" v-model="captcha"></x-input>
-                    <label for="remember"><input type="checkbox" name="remember"> 记住我</label>
+                    <x-input title="账号" type="text" name="account" placeholder="请输入邮箱或手机号" value="278746453@qq.com"></x-input>
+                    <x-input title="密码" type="password" name="password" placeholder="请输入登录密码" value="admin888"></x-input>
+                    <x-input theme="captcha"></x-input>
+                    <label class="hand"><input type="checkbox" name="remember"> 记住我</label>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-between align-items-center">
                     <button class="btn btn-success">登录</button>

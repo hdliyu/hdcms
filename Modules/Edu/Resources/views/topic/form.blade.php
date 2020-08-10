@@ -25,7 +25,6 @@
 <script>
     window.vue={
         data:{
-            name:'content',
             content:@json($topic->content)
         }
     }

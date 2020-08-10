@@ -35,12 +35,12 @@
                         <a href="https://www.houdunwang.com" target="_blank" class="nav-link">训练营</a>
                     </li>
                 </ul>
-
-                <div class="form-inline my-lg-0" style="position: relative;top:5px;">
-                    <a href="https://www.houdunren.com/edu/member/message" class="small">
-                        <i class="far fa-envelope" style="font-size:20px;"></i>
-                    </a>
-                </div>
+                @auth
+                    <div class="form-inline my-lg-0" style="position: relative;top:5px;">
+                        <a href="https://www.houdunren.com/edu/member/message" class="small">
+                            <i class="far fa-envelope" style="font-size:20px;"></i>
+                        </a>
+                    </div>
                 <div class="form-inline my-2 my-lg-0">
                     <div class="nav-item pr-2 dropdown">
                         <a href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle d-flex align-items-center text-secondary">
@@ -65,7 +65,12 @@
                         </div>
                     </div>
                 </div>
-
+                @else
+                    <div class="form-inline mr-3">
+                        <a href="{{route('login')}}" class="btn btn-info mr-1 btn-sm">登录</a>
+                        <a href="{{route('register')}}" class="btn btn-outline-info btn-sm">注册</a>
+                    </div>
+                @endauth
             </div>
         </nav>
     </div>

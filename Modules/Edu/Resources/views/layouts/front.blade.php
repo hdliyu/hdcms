@@ -8,9 +8,10 @@
     <title>@yield('title',site()['title'])</title>
     <link rel="stylesheet" href="{{mix('/modules/Edu/app.css')}}">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/rainbow.min.css" rel="stylesheet">
 </head>
 <body class="front">
-<div id="#app">
+<div id="app">
     @include('edu::layouts.header')
     <div class="container mt-3">
         @include('layouts.message')
@@ -20,5 +21,9 @@
 </div>
 @stack('scripts')
 <script src="{{mix('/modules/Edu/app.js')}}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 </body>
 </html>
