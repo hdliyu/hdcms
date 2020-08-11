@@ -20,14 +20,14 @@ class TopicController extends Controller
 
     public function index(Request $request)
     {
-        $topics = Topic::search($request->w)->latest()->paginate();
+        $topics = Topic::search($request->w)->latest()->paginate(1);
         return view('edu::topic.index', compact('topics'));
     }
 
 
     public function create(Topic $topic)
     {
-        $tags = Tag::all();
+//        $tags = Tag::all();
         return view('edu::topic.create',compact('tags','topic'));
     }
 
@@ -47,14 +47,14 @@ class TopicController extends Controller
 
     public function edit(Topic $topic)
     {
-//        $this->authorize('update', $topic);
+        $this->authorize('update', $topic);
         $tags = Tag::all();
         return view('edu::topic.edit', compact('topic', 'tags'));
     }
 
     public function update(Request $request, Topic $topic)
     {
-//        $this->authorize('update', $topic);
+        $this->authorize('update', $topic);
         $topic->fill($request->input())->save();
         $topic->tags()->sync($request->input('tags'));
         return redirect()->route('edu.front.topic.show', $topic)->with('success', '贴子修改成功');
@@ -62,7 +62,7 @@ class TopicController extends Controller
 
     public function destroy(Request $request, Topic $topic)
     {
-//        $this->authorize('delete', $topic);
+        $this->authorize('delete', $topic);
         $topic->delete();
 //        if ($request->expectsJson())
 //            return response()->json(['message' => '删除成功']);

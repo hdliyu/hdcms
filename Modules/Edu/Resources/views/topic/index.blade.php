@@ -10,7 +10,7 @@
                         <div class="input-group input-group-sm">
                             <input type="text" class="form-control" name="w">
                             <div class="input-group-append">
-                                <button href="https://www.houdunren.com/Edu/topic" class="btn btn-outline-secondary">
+                                <button type="submit" class="btn btn-outline-secondary">
                                     搜索
                                 </button>
                                 <a href="{{ route('edu.front.topic.create') }}" class="btn btn-outline-secondary">
@@ -26,12 +26,12 @@
                     @endforeach
                 </div>
                 <div class="card-footer">
-
+                    @include('edu::layouts.paginate',['data'=>$topics])
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-3">
-            xxx
+            @include('edu::topic.tips')
         </div>
     </div>
 </div>

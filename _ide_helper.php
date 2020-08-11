@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.15.0 on 2020-08-10 15:48:18.
+ * Generated for Laravel 7.15.0 on 2020-08-11 14:27:38.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -15783,6 +15783,56 @@ namespace Facade\Ignition\Facades {
  
 }
 
+namespace hisorange\BrowserDetect { 
+
+    /**
+     * Facading class to mask the service behind the "Browser" class.
+     *
+     * @example Browser::isMobile();
+     * @package hisorange\BrowserDetect
+     */ 
+    class Facade {
+        
+        /**
+         * Read the applied final config.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function config()
+        {
+                        /** @var \hisorange\BrowserDetect\Parser $instance */
+                        return $instance->config();
+        }
+        
+        /**
+         * 
+         *
+         * @inheritdoc 
+         * @static 
+         */ 
+        public static function detect()
+        {
+                        /** @var \hisorange\BrowserDetect\Parser $instance */
+                        return $instance->detect();
+        }
+        
+        /**
+         * 
+         *
+         * @inheritdoc 
+         * @static 
+         */ 
+        public static function parse($agent)
+        {
+                        /** @var \hisorange\BrowserDetect\Parser $instance */
+                        return $instance->parse($agent);
+        }
+         
+    }
+ 
+}
+
 namespace Intervention\Image\Facades { 
 
     /**
@@ -19520,6 +19570,8 @@ namespace  {
     class Active extends \HieuLe\Active\Facades\Active {}
 
     class Flare extends \Facade\Ignition\Facades\Flare {}
+
+    class Browser extends \hisorange\BrowserDetect\Facade {}
 
     class Image extends \Intervention\Image\Facades\Image {}
 

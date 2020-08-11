@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-08-10 15:48:19.
+    * Generated on 2020-08-11 14:27:39.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -57,6 +57,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -226,6 +227,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -395,6 +397,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -564,6 +567,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -733,6 +737,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -902,6 +907,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -1071,6 +1077,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,
@@ -1240,6 +1247,7 @@ namespace PHPSTORM_META {
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
         'auth.password.broker' => \Illuminate\Auth\Passwords\PasswordBroker::class,
         'blade.compiler' => \Illuminate\View\Compilers\BladeCompiler::class,
+        'browser-detect' => \hisorange\BrowserDetect\Parser::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'captcha' => \Mews\Captcha\Captcha::class,

@@ -14,10 +14,10 @@
                         <a href="https://www.houdunren.com/Edu/system" class="nav-link">系统学习</a>
                     </li>
                     <li class="nav-item pr-1">
-                        <a href="https://www.houdunren.com/Edu/lesson" class="nav-link">实战课程</a>
+                        <a href="{{route('edu.front.lesson.index')}}" class="nav-link">实战课程</a>
                     </li>
                     <li class="nav-item pr-1">
-                        <a href="https://www.houdunren.com/Edu/video" class="nav-link">最近更新</a>
+                        <a href="{{route('edu.front.video.index')}}" class="nav-link">最近更新</a>
                     </li>
                     <li class="nav-item pr-1">
                         <a href="{{route('edu.front.topic.index')}}" class="nav-link">话题讨论</a>

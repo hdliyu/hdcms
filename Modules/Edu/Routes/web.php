@@ -14,6 +14,8 @@
 Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front.','namespace'=>'Front'],function(){
     Route::get('/','HomeController@index')->name('home');
     Route::resource('topic','TopicController');
+    Route::resource('lesson','LessonController')->only(['index','show']);
+    Route::resource('video','VideoController')->only(['index','show']);
 });
 
 
