@@ -18,8 +18,10 @@
         </div>
         <div id="commentForm">
             <div class="card">
-                <div class="card-header"><!----> <span>发表评论</span></div>
-                <editor name="content" :content.sync="content" ref="editor"></editor>
+                <div class="card-header"><span>发表评论</span></div>
+
+                <editor name="content" :content.sync="content"  initialEditType="wysiwyg" ref="editor"></editor>
+
                 <div class="card-footer text-muted" @click="submit">
                     <button type="button" class="btn btn-primary btn-sm d-inline-block">保存</button>
                 </div>
@@ -47,14 +49,13 @@
         },
         methods: {
             async submit() {
-                let content = this.content;
-                if(content.length<10){
+                if(this.content.length<10){
                     this.$message.error('评论内容不能少于10个字')
                     return
                 }
                 let {comment} = await this.$axios.post(`/Edu/${this.model}/${this.id}/comment`,this.$data)
                 this.comments.push(comment)
-                this.$refs.editor.setEditorValue();
+                this.$refs.editor.setEditorValue()
             }
         }
     }

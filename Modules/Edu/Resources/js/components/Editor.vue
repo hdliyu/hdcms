@@ -16,7 +16,7 @@
     export default {
         props: {
             error: { default: '' },
-            name: { default:'content' },
+            name: { required: true, type: String },
             content: { default: '' },
             //后台上传地址
             action: { type: String, default: `common/upload` },
@@ -37,7 +37,10 @@
         },
         methods: {
             setEditorValue(value='') {
-                this.editor.setValue(value)
+                // console.log(this.editor);
+                this.editor.reset()
+                // this.editor.setHtml('')
+                // this.editor.setMarkdown('')
             },
             initEditor() {
                 const Vue = this
@@ -56,6 +59,7 @@
                         change: function () {
                             Vue.$set(Vue.form, 'markdown', editor.getMarkdown())
                             Vue.$set(Vue.form, 'html', editor.getHtml())
+                            Vue.$emit('update:content', editor.getMarkdown())
                         },
                     },
                     hooks: {
