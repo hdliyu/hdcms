@@ -11,7 +11,7 @@ use Modules\Edu\Entities\Traits\Comment;
 
 class Topic extends Model
 {
-    use Site, Comment, Favour, Favorite;
+    use Site, Comment, Favour, Favorite, Comment;
 
     protected $table = 'edu_topic';
 

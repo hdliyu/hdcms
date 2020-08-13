@@ -24,6 +24,6 @@ class VideoController extends Controller
     {
         return view('edu::edit');
     }
-
+ 
 
 }

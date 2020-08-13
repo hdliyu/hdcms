@@ -9,6 +9,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\User;
+use Illuminate\Support\Collection;
+use Spatie\Permission\Models\Role;
+
+Route::get('test',function(){
+    $collection = collect(['name' => 'taylor', 'languages' => ['php', 'name'=>'javascript',['abc','cba',['nba','bba']]]]);
+
+    $flattened = $collection->flatten();
+
+    dd($flattened->all());
+
+// ['taylor', 'php', 'javascript'];
+});
 Route::get('/', 'HomeController@entry')->name('home')->middleware(['front']);
 
 Route::group(['namespace'=>'Account','middleware'=>'auth'],function(){

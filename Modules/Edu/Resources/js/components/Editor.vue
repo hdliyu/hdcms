@@ -36,8 +36,8 @@
             this.fullScreenEvent()
         },
         methods: {
-            setEditorValue() {
-                this.editor.setValue('')
+            setEditorValue(value='') {
+                this.editor.setValue(value)
             },
             initEditor() {
                 const Vue = this
@@ -56,7 +56,6 @@
                         change: function () {
                             Vue.$set(Vue.form, 'markdown', editor.getMarkdown())
                             Vue.$set(Vue.form, 'html', editor.getHtml())
-                            Vue.$emit('update:content', editor.getMarkdown())
                         },
                     },
                     hooks: {

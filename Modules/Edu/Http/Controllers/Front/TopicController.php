@@ -20,14 +20,14 @@ class TopicController extends Controller
 
     public function index(Request $request)
     {
-        $topics = Topic::search($request->w)->latest()->paginate(1);
+        $topics = Topic::search($request->w)->latest()->paginate();
         return view('edu::topic.index', compact('topics'));
     }
 
 
     public function create(Topic $topic)
     {
-//        $tags = Tag::all();
+        $tags = Tag::all();
         return view('edu::topic.create',compact('tags','topic'));
     }
 
