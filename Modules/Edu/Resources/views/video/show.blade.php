@@ -1,15 +1,15 @@
 @extends('edu::layouts.front')
 @section('content')
     {{-- 视频播放 --}}
-{{--    <div class="video mb-2">--}}
-{{--        <div class="container p-0 pl-md-3 pr-md-3">--}}
-{{--            <div class="video">--}}
-{{--                <video controls>--}}
-{{--                    <source src="{{ $video->path }}" type="video/mp4">--}}
-{{--                </video>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--    <div class="video mb-2">--}}
+    {{--        <div class="container p-0 pl-md-3 pr-md-3">--}}
+    {{--            <div class="video">--}}
+    {{--                <video controls>--}}
+    {{--                    <source src="{{ $video->path }}" type="video/mp4">--}}
+    {{--                </video>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
     {{-- 视频播放END --}}
     <div class="container">
         <div class="card">
@@ -22,8 +22,12 @@
                 </div>
                 <div class="col-12 col-md-5 mt-2 mt-md-0 d-flex justify-content-md-end justify-content-start flex-wrap">
                     <div class="btn-group btn-group-sm align-items-center mr-1">
-                        <a href="https://www.houdunren.com/Edu/video/13417" class="btn btn-outline-success">上集</a>
-                        <a href="https://www.houdunren.com/Edu/video/13419" class="btn btn-outline-success">下集</a>
+                        @if($video->prev)
+                            <a href="{{route('edu.front.video.show',$video->prev)}}" class="btn btn-outline-success">上集</a>
+                        @endif
+                        @if($video->next)
+                            <a href="{{route('edu.front.video.show',$video->next)}}" class="btn btn-outline-success">下集</a>
+                        @endif
                     </div>
                     <div class="btn-group btn-group-sm align-items-center">
                         <a href="https://www.houdunren.com/common/favorite/Video/13418/Edu" class="btn btn-outline-secondary">
@@ -47,7 +51,7 @@
         <div class="row">
             <div class="col-md-9 mt-2 mt-md-0 order-md-0 mb-3">
                 <div id="app">
-                 <comment model="Video" id="{{$video['id']}}"></comment>
+                    <comment model="Video" id="{{$video['id']}}"></comment>
                 </div>
             </div>
             <div class="col-md-3 pl-md-0 order-0 order-md-1">

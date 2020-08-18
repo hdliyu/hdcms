@@ -15,6 +15,25 @@ class Video extends Model
         return $this->belongsTo(Lesson::class);
     }
 
+    public function getPrevAttribute()
+    {
+        $videos = $this->lesson->videos;
+        foreach ($videos as $index => $video) {
+            if ($video->id === $this->id) {
+                return $index === 0 ? null : $videos[$index - 1];
+            }
+        }
+    }
+
+    public function getNextAttribute()
+    {
+        $videos = $this->lesson->videos;
+        foreach ($videos as $index => $video) {
+            if ($video->id === $this->id) {
+                return ($index + 1) === $videos->count() ? null : $videos[$index + 1];
+            }
+        }
+    }
 
 
 }

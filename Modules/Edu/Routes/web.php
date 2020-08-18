@@ -16,7 +16,7 @@ Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front.','namesp
     Route::resource('topic','TopicController');
     Route::resource('lesson','LessonController')->only(['index','show']);
     Route::resource('video','VideoController')->only(['index','show']);
-    Route::resource('{model}/{id}/comment','CommentController')->only(['index','store']);
+    Route::resource('{model}/{id}/comment','CommentController')->only(['index','store','destroy']);
 });
 
 

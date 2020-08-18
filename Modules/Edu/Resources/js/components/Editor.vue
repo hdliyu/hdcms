@@ -36,7 +36,7 @@
             this.fullScreenEvent()
         },
         methods: {
-            setEditorValue(value='') {
+            reset() {
                 // console.log(this.editor);
                 this.editor.reset()
                 // this.editor.setHtml('')

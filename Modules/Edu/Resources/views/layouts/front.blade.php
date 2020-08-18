@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title',site()['title'])</title>
-    <link rel="stylesheet" href="{{mix('/modules/Edu/app.css')}}">
+    <link rel="stylesheet" href="{{mix('modules/Edu/app.css')}}">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/rainbow.min.css" rel="stylesheet">
 </head>
@@ -20,7 +20,7 @@
     @include('edu::layouts.footer')
 </div>
 @stack('scripts')
-<script src="{{mix('/modules/Edu/app.js')}}"></script>
+<script src="{{mix('modules/Edu/app.js')}}"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
 <script>
     hljs.initHighlightingOnLoad();

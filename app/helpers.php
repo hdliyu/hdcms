@@ -61,4 +61,5 @@ function is_admin()
 {
     if (Auth::check())
         return user()->isSuperAdmin  || site()->user_id == user()->id;
+    return false;
 }

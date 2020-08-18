@@ -1,4 +1,4 @@
-@foreach(['danger','info','success'] as $item)
+@foreach(['danger','warning','info','success'] as $item)
     @if(session()->has($item))
         <div class="alert alert-{{ $item }}" role="alert">
             <strong>{{ session()->get($item) }}</strong>
