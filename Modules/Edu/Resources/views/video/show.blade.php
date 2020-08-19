@@ -30,17 +30,17 @@
                         @endif
                     </div>
                     <div class="btn-group btn-group-sm align-items-center">
-                        <a href="https://www.houdunren.com/common/favorite/Video/13418/Edu" class="btn btn-outline-secondary">
+                        <a href="" class="btn btn-outline-secondary">
                             <i aria-hidden="true" class="fa fa-heart-o"></i> 收藏
                         </a>
                         <button type="button" class="btn btn-outline-secondary">
-                            0
+                            {{$video->favorite_count}}
                         </button>
-                        <a href="https://www.houdunren.com/common/favour/Video/13418/Edu" class="btn btn-outline-secondary">
+                        <a href="" class="btn btn-outline-secondary">
                             <i aria-hidden="true" class="fa fa-thumbs-o-up"></i> 点赞
                         </a>
                         <button type="button" class="btn btn-outline-secondary">
-                            2
+                            {{$video->favour_count}}
                         </button>
                     </div>
                 </div>
