@@ -23,16 +23,10 @@
                         <a href="{{route('edu.front.topic.index')}}" class="nav-link">话题讨论</a>
                     </li>
                     <li class="nav-item pr-1">
-                        <a href="https://www.houdunren.com/Edu/sign" class="nav-link">签到打卡</a>
+                        <a href="{{route('edu.front.sign.index')}}" class="nav-link">签到打卡</a>
                     </li>
                     <li class="nav-item pr-1">
                         <a href="https://www.houdunren.com/Edu/subscribe" class="nav-link">订阅会员</a>
-                    </li>
-                    <li class="nav-item pr-1">
-                        <a href="http://doc.houdunren.com" class="nav-link">在线文档</a>
-                    </li>
-                    <li class="nav-item pr-1">
-                        <a href="https://www.houdunwang.com" target="_blank" class="nav-link">训练营</a>
                     </li>
                 </ul>
                 @auth
