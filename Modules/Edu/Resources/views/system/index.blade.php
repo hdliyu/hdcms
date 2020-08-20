@@ -30,7 +30,7 @@
                     <a href="{{ route("edu.admin.system.edit",$system) }}" class="btn btn-info">编辑</a>
                     <a href="#" class="btn btn-success">查看</a>
                     <btn-del action="{{ route('edu.admin.system.destroy',$system) }}" class="btn btn-secondary">
-                    </btn-del>
+                    </btn-del>1
                 </div>
             </td>
         </tr>

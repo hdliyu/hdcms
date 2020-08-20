@@ -1,16 +1,16 @@
 @extends('edu::layouts.front')
 @section('content')
-    {{-- 视频播放 --}}
-    {{--    <div class="video mb-2">--}}
-    {{--        <div class="container p-0 pl-md-3 pr-md-3">--}}
-    {{--            <div class="video">--}}
-    {{--                <video controls>--}}
-    {{--                    <source src="{{ $video->path }}" type="video/mp4">--}}
-    {{--                </video>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-    {{-- 视频播放END --}}
+{{-- 视频播放--}}
+        <div class="video mb-2">
+            <div class="container p-0 pl-md-3 pr-md-3">
+                <div class="video">
+                    <video controls>
+{{--                        <source src="{{ $video->path }}" type="video/mp4">--}}
+                    </video>
+                </div>
+            </div>
+        </div>
+{{-- 视频播放END--}}
     <div class="container">
         <div class="card">
             <div class="card-body row">
@@ -30,13 +30,13 @@
                         @endif
                     </div>
                     <div class="btn-group btn-group-sm align-items-center">
-                        <a href="" class="btn btn-outline-secondary">
+                        <a href="{{route('common.favorite',['Video',$video['id']])}}" class="btn {{$video['isfavorite']?'btn-success':'btn-outline-secondary'}}">
                             <i aria-hidden="true" class="fa fa-heart-o"></i> 收藏
                         </a>
                         <button type="button" class="btn btn-outline-secondary">
                             {{$video->favorite_count}}
                         </button>
-                        <a href="" class="btn btn-outline-secondary">
+                        <a href="{{route('common.favour',['Video',$video['id']])}}"  class="btn {{$video['isfavour']?'btn-success':'btn-outline-secondary'}}">
                             <i aria-hidden="true" class="fa fa-thumbs-o-up"></i> 点赞
                         </a>
                         <button type="button" class="btn btn-outline-secondary">

@@ -13,7 +13,7 @@ class System extends Model
 
     public function lessons()
     {
-        return $this->belongsToMany(Lesson::class, 'edu_system_lesson');
+        return $this->belongsToMany(Lesson::class, 'edu_system_lesson')->orderBy('rank','desc');
     }
 
     public function user()

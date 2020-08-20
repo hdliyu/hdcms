@@ -75,4 +75,6 @@ Route::group(['namespace'=>'Site','prefix'=>'site','middleware'=>['auth','admin'
 });
 Route::group(['prefix' => "common", 'namespace' => 'Common', 'as' => 'common.'], function () {
     Route::post('upload', 'UploadController@make')->name('upload');
+    Route::get('{model}/{id}/favorite', 'FavoriteController@make')->name('favorite');
+    Route::get('{model}/{id}/favour', 'FavourController@make')->name('favour');
 });

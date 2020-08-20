@@ -11,7 +11,7 @@
             <div id="collapsibleNavId" class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0 font-weight-bold">
                     <li class="nav-item pr-1">
-                        <a href="https://www.houdunren.com/Edu/system" class="nav-link">系统学习</a>
+                        <a href="{{route('edu.front.system.index')}}" class="nav-link">系统学习</a>
                     </li>
                     <li class="nav-item pr-1">
                         <a href="{{route('edu.front.lesson.index')}}" class="nav-link">实战课程</a>

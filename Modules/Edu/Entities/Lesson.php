@@ -1,13 +1,15 @@
 <?php
 
 namespace Modules\Edu\Entities;
+use App\Models\Traits\Favorite;
+use App\Models\Traits\Favour;
 use App\Models\Traits\Site;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
-    use Site;
+    use Site,Favorite,Favour;
     protected $fillable = ['title', 'description', 'thumb', 'status', 'download_address', 'free_num'];
     protected $table = 'edu_lessons';
 

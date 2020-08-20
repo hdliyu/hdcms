@@ -6,14 +6,14 @@
                 <div class="card">
                     <div class="card-body p-5">
                         <h4 class="text-black-50 mb-4">{{$lesson['title']}}</h4>
-                        <div role="group" aria-label="" class="btn-group btn-group-sm">
-                            <a href="https://www.houdunren.com/common/favorite/Lesson/339/Edu" class="btn btn-outline-secondary">
+                        <div role="group"  class="btn-group btn-group-sm">
+                            <a href="{{route('common.favorite',['Lesson',$lesson['id']])}}" class="btn {{$lesson['isfavorite']?'btn-success':'btn-outline-secondary'}}">
                                 <i aria-hidden="true" class="fa fa-heart-o"></i> 收藏
                             </a>
                             <button type="button" class="btn  btn-outline-secondary">{{$lesson['favorite_count']}}</button>
                         </div>
-                        <div role="group" aria-label="" class="btn-group btn-group-sm">
-                            <a href="https://www.houdunren.com/common/favour/Lesson/339/Edu" class="btn btn-outline-secondary">
+                        <div role="group"  class="btn-group btn-group-sm">
+                            <a href="{{route('common.favour',['Lesson',$lesson['id']])}}" class="btn {{$lesson['isfavour']?'btn-success':'btn-outline-secondary'}}">
                                 <i aria-hidden="true" class="fa fa-thumbs-o-up"></i> 点赞
                             </a>
                             <button type="button" class="btn btn-outline-secondary">{{$lesson['favour_count']}}</button>

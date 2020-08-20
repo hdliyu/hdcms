@@ -34,16 +34,14 @@
                                     @endcan
                                 </div>
                                 <div class="btn-group btn-group-sm align-items-center">
-                                    <a href="#" type="button" class="btn btn-outline-secondary">
+                                    <a href="{{ route('common.favorite',['Topic',$topic['id']]) }}" class="btn {{ $topic->isFavorite?'btn-info':'btn-outline-secondary' }}">
                                         <i aria-hidden="true" class="fa fa-heart-o"></i> 收藏
                                     </a>
-
                                     <button type="button" class="btn btn-outline-secondary">
-                                            {{ $topic->favorite_count }}
-                                        </button>
+                                        {{ $topic->favorite_count }}
+                                    </button>
                                     @can('update',$topic)
-                                        <form action="{{ route('edu.front.topic.destroy',$topic) }}" method="post"
-                                              class="d-inline-block ml-1">
+                                        <form action="{{ route('edu.front.topic.destroy',$topic) }}" method="post" class="d-inline-block ml-1">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-sm btn-outline-secondary" onclick="return confirm('确定删除吗')">
@@ -56,30 +54,30 @@
                         </div>
                     </div>
                     <div class="topic-content markdown bg-white text-monospace">
-                       {!! $topic['html'] !!}
+                        {!! $topic['html'] !!}
                     </div>
 
-                    <div wire:id="K8CuydtC6E1QGHE3hNBW">
+                    <div>
                         <div class="mt-5 text-center border-top border-gary pt-5">
-                            <div role="group" aria-label="First group" class="favour btn-group mr-2" wire:click="$emit('change')">
-                                <button type="button" class="btn btn-success">
+                            <div role="group" aria-label="First group" class="favour btn-group mr-2">
+                                <a href="{{route('common.favour',['Topic',$topic['id']])}}" class="btn {{$topic['isfavour']?'btn-success':'btn-outline-secondary
+'}}">
                                     <i class="fa fa-thumbs-o-up"></i> 点个赞呗
-                                </button>
-
+                                </a>
                                 <button type="button" class="btn btn-outline-info">
-                                    感谢 49位朋友的喜欢
+                                    感谢 {{$topic['favour_count']}}位朋友的喜欢
                                 </button>
                             </div>
                         </div>
                         <div class="favour-list text-center pt-3 w-75 m-auto">
-                            <a href="https://www.houdunren.com/edu/space/25807/fans" class="m-1 d-inline-block">
-                                <img src="https://houdunren-image.oss-cn-qingdao.aliyuncs.com/258071574998930.png" class="rounded-circle avatar35">
-                            </a>
+                            @foreach($topic->favours as $user)
+                               <img src="{{$user['avatar']}}" class="rounded-circle avatar35">
+                            @endforeach
                         </div>
                     </div>
                 </div>
                 <div id="app" class="mt-3">
-                <comment model="Topic" id="{{$topic['id']}}"></comment>
+                    <comment model="Topic" id="{{$topic['id']}}"></comment>
                 </div>
             </div>
             <div class="col-12 col-md-3">
@@ -110,7 +108,7 @@
                     </div>
                 </div>
                 <div class="card rounded shadow-sm mb-2">
-                   @include('edu::topic.tips')
+                    @include('edu::topic.tips')
                 </div>
             </div>
         </div>

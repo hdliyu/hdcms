@@ -2,11 +2,13 @@
 
 namespace Modules\Edu\Entities;
 
+use App\Models\Traits\Favorite;
+use App\Models\Traits\Favour;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Edu\Entities\Traits\Comment;
 class Video extends Model
 {
-    use Comment;
+    use Comment,Favorite,Favour;
     protected $fillable = [];
     protected $table = 'edu_videos';
 
