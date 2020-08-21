@@ -7,8 +7,8 @@ use App\Models\Site;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Edu\Entities\Sign;
 use Spatie\Permission\Traits\HasRoles;
-
 class User extends Authenticatable
 {
     use HasApiTokens,Notifiable,HasRoles;
@@ -84,6 +84,31 @@ class User extends Authenticatable
     public function getIsSuperAdminAttribute()
     {
         return $this->id === 1;
+    }
+
+    public function getIsSignAttribute()
+    {
+        return $this->signs()->today()->exists();
+    }
+
+    public function getPrevSignAttribute()
+    {
+        return $this->signs()->site()->orderBy('created_at','desc')->limit(1,1)->value('created_at')->diffForHumans();
+    }
+
+    public function getMonthSignAttribute()
+    {
+        return $this->signs()->month()->count();
+    }
+
+    public function getTotalSignAttribute()
+    {
+        return $this->signs()->site()->count();
+    }
+
+    public function signs()
+    {
+        return $this->hasMany(Sign::class);
     }
 
 }

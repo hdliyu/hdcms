@@ -23,7 +23,7 @@ class LoginController extends Controller
         ]);
         $isLogin =  Auth::attempt([$this->username() => $request->account, 'password' => $request->password],$request->has('remember'));
         if ($isLogin) {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/');
         }
         return back()->with('danger','帐号或密码错误');
     }

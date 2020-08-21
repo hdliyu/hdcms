@@ -63,3 +63,7 @@ function is_admin()
         return user()->isSuperAdmin  || site()->user_id == user()->id;
     return false;
 }
+
+function hasSign(){
+    return user()->isSign;
+}

@@ -1,4 +1,6 @@
 {
     "Edu": true,
-    "Shop": true
+    "Shop": true,
+    "Cms": true,
+    "Test": true
 }

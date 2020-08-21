@@ -12,7 +12,7 @@
                     <div class="col-12 col-md-4 mb-2">
                         <a href="{{route('edu.front.system.show',$system)}}">
                             <div class="card">
-                                <img src="{{$system['preview']}}">
+                                <img src="{{$system['preview']}}" style="width:100%;">
                                 <div class="card-footer bg-white text-center p-4 text-muted d-flex justify-content-center">
                                     {{$system['title']}}
                                 </div>

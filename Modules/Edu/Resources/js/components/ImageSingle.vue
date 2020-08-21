@@ -56,7 +56,7 @@
         },
         methods: {
             handleAvatarSuccess(res, file) {
-                console.log(res,file);
+                // console.log(res,file);
                 // this.imageUrl = URL.createObjectURL(file.raw);
                 this.imageUrl = res.path
             },
