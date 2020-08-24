@@ -4,14 +4,16 @@ namespace App;
 
 use App\Models\Group;
 use App\Models\Site;
+use App\Models\Traits\Favour;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Edu\Entities\Sign;
+use Modules\Edu\Entities\SignTotal;
 use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
-    use HasApiTokens,Notifiable,HasRoles;
+    use HasApiTokens,Notifiable,HasRoles,Favour;
 
     /**
      * The attributes that are mass assignable.
@@ -86,29 +88,26 @@ class User extends Authenticatable
         return $this->id === 1;
     }
 
-    public function getIsSignAttribute()
+    public function make(User $user=null)
     {
-        return $this->signs()->today()->exists();
+        $class =  'Modules\\'.module()['name'].'\Entities\User';
+        return $class::find($user['id']??$this['id']);
     }
 
-    public function getPrevSignAttribute()
+    public function fans()
     {
-        return $this->signs()->site()->orderBy('created_at','desc')->limit(1,1)->value('created_at')->diffForHumans();
+        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
     }
 
-    public function getMonthSignAttribute()
+    public function followers()
     {
-        return $this->signs()->month()->count();
+        return $this->belongsToMany(User::class, 'followers',  'follower_id', 'user_id')->withTimestamps();
     }
 
-    public function getTotalSignAttribute()
+    public function isFollower(User $user)
     {
-        return $this->signs()->site()->count();
+        return $user->fans()->where('follower_id', $this['id'])->exists();
     }
 
-    public function signs()
-    {
-        return $this->hasMany(Sign::class);
-    }
 
 }

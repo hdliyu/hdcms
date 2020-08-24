@@ -21,7 +21,7 @@ trait Favour
             'module_Id' => module()['id']
         ]);
 
-        $this->favour_count = $this->favours()->count();
+//        $this->favour_count = $this->favours()->count();
         $this->save();
     }
 

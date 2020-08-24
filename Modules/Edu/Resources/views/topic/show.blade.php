@@ -81,35 +81,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-3">
-                <div class="card rounded shadow-sm mb-2">
-                    <div class="card-header bg-white border-0 p-1 d-flex justify-content-center auto-height">
-                        <a href="https://www.houdunren.com/edu/space/1/topic" class="mt-3 d-flex flex-column align-items-center">
-                            <img src="https://houdunren-image.oss-cn-qingdao.aliyuncs.com/11552521685.png" class="rounded-circle border" style="width:150px;height:150px;">
-                            <span class="text-secondary mt-2">向军老师</span>
-                        </a>
-                    </div>
-                    <div class="card-body text-center text-secondary ">
-                        <i aria-hidden="true" class="fa fa-home mr-1 text-info"></i>
-                        <i aria-hidden="true" class="fa fa-envelope mr-1 text-info"></i>
-                        <i aria-hidden="true" class="fab fa-weibo mr-1 text-info"></i>
-                        <i aria-hidden="true" class="fab fa-weixin mr-1 text-info"></i>
-                        <i aria-hidden="true" class="fab fa-github mr-1 text-info"></i>
-                        <i aria-hidden="true" class="fab fa-qq mr-1 text-info"></i>
-                    </div>
-                    <div class="text-center pb-3">
-                        <a href="https://www.houdunren.com/common/follower/1" data-container="body" data-toggle="popover" data-placement="top" data-trigger="hover" data-original-title="" title="" class="btn btn-sm btn-success">
-                            <i class="fa fa-plus"></i>
-                            关注 TA
-                        </a>
-                        <a href="https://www.houdunren.com/common/favour/User/1" data-container="body" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="收到 0 个赞" data-original-title="" title="" class="btn btn-sm btn-outline-info">
-                            <i class="fas fa-heart "></i>
-                            点个赞呗
-                        </a>
-                    </div>
-                </div>
-                <div class="card rounded shadow-sm mb-2">
+                    @include('edu::layouts.user',['user'=>$topic['user']])
                     @include('edu::topic.tips')
-                </div>
             </div>
         </div>
     </div>

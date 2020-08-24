@@ -3,7 +3,7 @@
 namespace Modules\Edu\Entities;
 
 use App\Models\Site;
-use App\User;
+use Modules\Edu\Entities\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Sign extends Model
@@ -32,7 +32,7 @@ class Sign extends Model
         return $query->year($query)->whereMonth('created_at',now());
     }
 
-    public function scopeToday($query)
+    public function scopeDay($query)
     {
         return $query->month()->whereDay('created_at',now());
     }

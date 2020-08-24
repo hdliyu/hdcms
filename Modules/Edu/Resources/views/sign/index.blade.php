@@ -93,18 +93,15 @@
                                 </a>
                             </td>
                             <td width="180" class="align-middle">{{$sign['created_at']}}</td>
-                            <td width="120" class="align-middle">{{$sign->user->totalSign}}</td>
-                            <td width="120" class="align-middle">{{$sign->user->monthSign}}</td>
+                            <td width="120" class="align-middle">{{$sign->user->totalSigns->total}}</td>
+                            <td width="120" class="align-middle">{{$sign->user->totalSigns->month}}</td>
                             <td class="align-middle d-flex justify-content-between align-items-center">
                                 <span>
                                 <img src="/modules/Edu/static/sign/{{$sign['mood']}}.gif" class="w35">
                                 {{$sign['content']}}
                                  </span>
                                 @can('delete',$sign)
-                                <form action="{{route('edu.front.sign.destroy',$sign)}}" method="post">
-                                    @csrf @method('DELETE')
-                                <button class="btn btn-danger btn-sm float-right">删除</button>
-                                </form>
+                                    <btn-del action="{{route('edu.front.sign.destroy',$sign)}}"></btn-del>
                                 @endcan
                             </td>
                         </tr>

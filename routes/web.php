@@ -10,26 +10,9 @@
 |
 */
 
-use App\User;
-use Illuminate\Support\Collection;
-use Spatie\Permission\Models\Role;
-
-Route::get('test',function(){
-    $collection = collect(['name' => 'taylor', 'languages' => ['php', 'name'=>'javascript',['abc','cba',['nba','bba']]]]);
-
-    $flattened = $collection->flatten();
-
-    dd($flattened->all());
-
-// ['taylor', 'php', 'javascript'];
-});
 Route::get('/', 'HomeController@entry')->name('home')->middleware(['front']);
 
-Route::group(['namespace'=>'Account','middleware'=>'auth'],function(){
-    Route::get('logout','LoginController@logout')->name('logout');
-});
-
-Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
+Route::group(['namespace'=>'Account','middleware'=>'front'],function(){
     Route::resource('login','LoginController')->only(['index','store'])->names([
         'index'=>'login'
     ]);
@@ -37,6 +20,8 @@ Route::group(['namespace'=>'Account','middleware'=>'guest'],function(){
         'index'=>'register'
     ]);
     Route::post('register/code','RegisterController@code')->middleware(['throttle:1,1']);
+    Route::get('follow/{user}','UserController@follower')->name('user.follower');
+
 });
 
 Route::get('/admin','Site\SiteController@index')->name('admin')->middleware(['auth','admin']);
