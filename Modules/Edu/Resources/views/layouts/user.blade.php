@@ -1,6 +1,6 @@
 <div class="card rounded shadow-sm mb-2">
     <div class="card-header bg-white border-0 p-1 d-flex justify-content-center auto-height">
-        <a href="" class="mt-3 d-flex flex-column align-items-center">
+        <a href="{{ route('edu.center.topic.index',$user) }}" class="mt-3 d-flex flex-column align-items-center">
             <img src="{{$user['avatar']}}" class="rounded-circle border" style="width:150px;height:150px;">
             <span class="text-secondary mt-2">{{$user['name']}}</span>
         </a>

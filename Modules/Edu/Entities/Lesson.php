@@ -6,9 +6,11 @@ use App\Models\Traits\Favour;
 use App\Models\Traits\Site;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use function route;
 
 class Lesson extends Model
 {
+    const type = '课程';
     use Site,Favorite,Favour;
     protected $fillable = ['title', 'description', 'thumb', 'status', 'download_address', 'free_num'];
     protected $table = 'edu_lessons';
@@ -43,5 +45,10 @@ class Lesson extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getLinkAttribute()
+    {
+        return route('edu.front.lesson.show', $this);
     }
 }

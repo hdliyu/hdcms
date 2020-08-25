@@ -58,8 +58,8 @@
                 <div class="card text-secondary">
                     <div class="card-header bg-white">课程列表</div>
                     <div class="list-group list-group-flush">
-                        @foreach($video->lesson->videos as $video)
-                            <a href="{{route('edu.front.video.show',$video)}}" class="list-group-item text-secondary">{{$video['title']}}</a>
+                        @foreach($video->lesson->videos as $_video)
+                            <a href="{{route('edu.front.video.show',$_video)}}" class="list-group-item @if($video['id']==$_video['id']) bg-light @endif">{{$_video['title']}}</a>
                         @endforeach
                     </div>
                 </div>

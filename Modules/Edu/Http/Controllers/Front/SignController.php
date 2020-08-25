@@ -2,50 +2,54 @@
 
 namespace Modules\Edu\Http\Controllers\Front;
 
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Modules\Edu\Entities\Sign;
 use Modules\Edu\Entities\SignTotal;
+use Modules\Edu\Entities\User;
 use Modules\Edu\Http\Requests\SignRequest;
-use function user;
 
 class SignController extends Controller
 {
     public function index()
     {
-        $signs = Sign::day()->orderBy('created_at','desc')->get();
-        return view('edu::sign.index',compact('signs'));
+        $signs = Sign::site()->with('signTotal')->whereYear('created_at', now())->whereMonth('created_at', now())->whereDay('created_at', now())->get();
+        // dd($signs->toArray());
+        return view('edu::sign.index', compact('signs'));
     }
 
-
-    public function store(SignRequest $request,Sign $sign)
+    public function store(SignRequest $request, Sign $sign)
     {
-        if(!hasSign()) {
-            $sign['site_id'] = site()['id'];
-            $sign['user_id'] = user('id');
-            $sign->fill($request->input())->save();
-            $this->updateSign();
-            return back()->with('success', '签到成功');
+        if (user()->make()->isSign) {
+            return back()->with('danger', '今日已签到');
         }
-        return back()->with('warning','今日已签到');
+        $sign['site_id'] = site()['id'];
+        $sign['user_Id'] = Auth::id();
+        $sign->fill($request->input())->save();
+
+        $this->updateTotal();
+
+        return back();
     }
 
-    protected function updateSign()
+    protected function updateTotal()
     {
         SignTotal::updateOrCreate([
-            'site_id'=>site()['id'],
-            'user_id'=>user('id'),
-        ],[
-            'month'=>user()->monthSign,
-            'total'=>user()->totalSign,
+            'site_id' => site()['id'],
+            'user_id' => user()['id']
+        ], [
+            'total' => user()->make()->signTotal,
+            'month' => user()->make()->monthSign
         ]);
     }
 
     public function destroy(Sign $sign)
     {
-        $this->authorize('delete',$sign);
+        $this->authorize('delete', $sign);
         $sign->delete();
-        $this->updateSign();
-        return response()->json(['message'=>'删除成功']);
+        $this->updateTotal();
+        return response()->json(['message' => '删除成功']);
     }
 }

@@ -2,10 +2,16 @@
 
 use App\Models\Site;
 use App\Services\ModuleService;
+use App\User;
+use Modules\Edu\Entities\Study;
 
-function user($name=null){
-    $user = auth()->user();
-    return $name?$user[$name]:$user;
+function user($name = null)
+{
+    if (Auth::check()) {
+        $user = auth()->user();
+        return $name ? $user[$name] : $user;
+    }
+    return app(User::class);
 }
 function route_class(){
     return str_replace('.','-',Route::currentRouteName());
@@ -65,5 +71,10 @@ function is_admin()
 }
 
 function hasSign(){
-    return user()->isSign;
+    return user()->make()->isSign;
+}
+
+ function hasStudy($video)
+{
+    return Study::where('site_id', site()['id'])->where('user_id',user()->make()['id'])->where('video_id',$video['id'])->where('created_at','>',now()->subMinutes(5))->exists();
 }

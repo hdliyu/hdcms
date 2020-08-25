@@ -16,7 +16,7 @@
     export default {
         props: {
             error: { default: '' },
-            name: { required: true, type: String },
+            name: { default:'content' },
             content: { default: '' },
             //后台上传地址
             action: { type: String, default: `common/upload` },

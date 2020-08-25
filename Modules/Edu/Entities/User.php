@@ -1,20 +1,30 @@
 <?php
 
 namespace Modules\Edu\Entities;
+
 use App\User as AppUser;
 use Illuminate\Database\Eloquent\Model;
-use function site;
 
 class User extends AppUser
 {
-    public function getIsSignAttribute()
+    public function signs()
     {
-        return $this->signs()->day()->exists();
+        return $this->hasMany(Sign::class);
     }
 
-    public function getPrevSignAttribute()
+    public function getSignAttribute()
     {
-        return $this->signs()->site()->orderBy('created_at','desc')->limit(1,1)->value('created_at')->diffForHumans();
+        return $this->signs()->day()->where('user_id', $this['id'])->first();
+    }
+
+    public function getIsSignAttribute()
+    {
+        return $this->signs()->day()->where('user_id', $this['id'])->exists();
+    }
+
+    public function getSignTotalAttribute()
+    {
+        return $this->signs()->count();
     }
 
     public function getMonthSignAttribute()
@@ -22,18 +32,13 @@ class User extends AppUser
         return $this->signs()->month()->count();
     }
 
-    public function getTotalSignAttribute()
+    public function topics()
     {
-        return $this->signs()->site()->count();
+        return $this->hasMany(Topic::class);
     }
 
-    public function signs()
+    public function studys()
     {
-        return $this->hasMany(Sign::class);
-    }
-
-    public function totalSigns()
-    {
-        return $this->hasOne(SignTotal::class)->where('site_id',site()['id']);
+        return $this->hasMany(Study::class);
     }
 }

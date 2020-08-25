@@ -31,7 +31,7 @@ class TopicController extends Controller
         return view('edu::topic.create',compact('tags','topic'));
     }
 
-    public function store(TopicRequest $request,Topic $topic)
+    public function store(Request $request,Topic $topic)
     {
         $topic['site_id'] = site()['id'];
         $topic['user_id'] = user('id');
@@ -64,8 +64,8 @@ class TopicController extends Controller
     {
         $this->authorize('delete', $topic);
         $topic->delete();
-//        if ($request->expectsJson())
-//            return response()->json(['message' => '删除成功']);
+        if ($request->expectsJson())
+            return response()->json(['message' => '删除成功']);
         return redirect()->route('edu.front.topic.index');
     }
 }

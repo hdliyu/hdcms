@@ -4,11 +4,19 @@ namespace Modules\Edu\Entities;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
-
+use Spatie\Activitylog\Traits\LogsActivity;
 class Comment extends Model
 {
+    use LogsActivity;
+    protected static $recordEvents = ['created'];
+    protected static $logName = 'comment';
     protected $table = 'edu_comment';
     protected $fillable = ['site_id','user_id','content','reply_user_id'];
+
+    public function commentable()
+    {
+        return $this->morphTo('comment');
+    }
 
     public function user()
     {

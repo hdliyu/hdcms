@@ -94,11 +94,13 @@ class User extends Authenticatable
         return $class::find($user['id']??$this['id']);
     }
 
+    //粉丝
     public function fans()
     {
         return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
     }
 
+    //关注的所有用户
     public function followers()
     {
         return $this->belongsToMany(User::class, 'followers',  'follower_id', 'user_id')->withTimestamps();

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Edu\Entities\Traits\Comment;
 class Video extends Model
 {
+    const type = '视频';
     use Comment,Favorite,Favour;
     protected $fillable = [];
     protected $table = 'edu_videos';
@@ -37,5 +38,14 @@ class Video extends Model
         }
     }
 
+    public function user()
+    {
+        return $this->lesson->user();
+    }
+
+    public function getLinkAttribute()
+    {
+        return route('edu.front.video.show', $this);
+    }
 
 }

@@ -1,7 +1,7 @@
 <div class="d-flex pt-3 pb-3 border-bottom align-items-center mb-2">
     <a href="{{ route('edu.center.topic.index',  $activity->subject->user) }}">
         <span class="mr-3 ">
-            <img src=" {{ $activity->causer->icon }}" class="avatar45 rounded">
+            <img src=" {{ $activity->causer->avatar }}" class="avatar45 rounded">
         </span>
     </a>
     <div class="d-flex flex-column justify-content-between">

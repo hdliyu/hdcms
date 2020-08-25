@@ -8,9 +8,11 @@ use App\Models\Traits\Site;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Edu\Entities\Traits\Comment;
+use function route;
 
 class Topic extends Model
 {
+    const type = '帖子';
     use Site, Comment, Favour, Favorite, Comment;
 
     protected $table = 'edu_topic';
@@ -39,5 +41,10 @@ class Topic extends Model
             return $query->where('title', 'like', "%{$w}%");
         }
         return $query;
+    }
+
+    public function getLinkAttribute()
+    {
+        return route('edu.front.topic.show', $this);
     }
 }

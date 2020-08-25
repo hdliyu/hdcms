@@ -30,3 +30,12 @@ Route::group(['prefix' => 'Edu/admin', 'middleware' => ['auth', 'admin'], 'names
     Route::post('system-search', 'LessonController@search')->name('lesson.search');
     Route::resource('subscribe', 'SubscribeController');
 });
+
+Route::group(['prefix' => 'Edu/center/{user}', 'middleware' => ['front'], 'namespace' => 'Center', 'as' => 'edu.center.'], function () {
+    Route::resource('topic', 'TopicController')->only('index');
+});
+
+Route::group(['prefix' => 'Edu/member', 'middleware' => ['auth', 'front'], 'namespace' => 'Member', 'as' => 'edu.member.'], function () {
+    Route::resource('topic', 'TopicController')->only('index');
+    Route::resource('message', 'MessageController')->only(['index', 'destroy', 'show']);
+});

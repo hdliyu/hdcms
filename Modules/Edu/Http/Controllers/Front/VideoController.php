@@ -5,7 +5,14 @@ namespace Modules\Edu\Http\Controllers\Front;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Edu\Entities\Study;
 use Modules\Edu\Entities\Video;
+use function app;
+use function dd;
+use function dump;
+use function hasStudy;
+use function site;
+use function user;
 
 class VideoController extends Controller
 {
@@ -17,6 +24,14 @@ class VideoController extends Controller
 
     public function show(Video $video)
     {
+        //五分钟内没有刷新写入数据库
+        if(!hasStudy($video)){
+            Study::create([
+                'site_id'=>site()['id'],
+                'user_id'=>user()->make()['id'],
+                'video_id'=>$video->id,
+            ]);
+        }
         return view('edu::video.show',compact('video'));
     }
 
@@ -24,6 +39,6 @@ class VideoController extends Controller
     {
         return view('edu::edit');
     }
- 
+
 
 }

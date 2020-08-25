@@ -13,7 +13,7 @@
                 </label>
                 @endforeach
             </div>
-             <editor name="content" :content="content"></editor>
+             <editor :content="content"></editor>
         </div>
         <div class="card-footer text-muted  bg-white">
             <button class="btn btn-primary">保存</button>
