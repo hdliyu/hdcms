@@ -3,8 +3,11 @@
 namespace App\Http\Middleware;
 
 use App\Models\Config;
+use App\Services\ConfigService;
 use App\Services\PermissionService;
 use Closure;
+use function config;
+use function site;
 
 class AdminMiddleware
 {
@@ -18,6 +21,7 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         config(['admin'=>Config::first()->config]);
+        app(ConfigService::class)->loadCurrentModuleConfig();
         if (user()->isSuperAdmin || site()->user_id == user('id')) {
             return $next($request);
         }

@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title','后盾人')</title>
-    <link rel="stylesheet" href="{{mix('/css/app.css')}}">
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
 </head>
 <body class="account d-flex align-items-center">
 <div class="container" id="app">
@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-<script src="{{mix('/js/app.js')}}"></script>
+<script src="{{mix('js/app.js')}}"></script>
 </body>
 </html>
 

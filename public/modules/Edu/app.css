@@ -10994,6 +10994,15 @@ a {
   width: 100%;
 }
 
+.edu-front-live-index .video {
+  background: #22262f;
+}
+
+.edu-front-live-index .video video {
+  width: 100%;
+  outline: none;
+}
+
 .edu-front-video-show .video {
   background: #22262f;
 }

@@ -31,7 +31,7 @@ class TopicController extends Controller
         return view('edu::topic.create',compact('tags','topic'));
     }
 
-    public function store(Request $request,Topic $topic)
+    public function store(TopicRequest $request,Topic $topic)
     {
         $topic['site_id'] = site()['id'];
         $topic['user_id'] = user('id');
@@ -52,7 +52,7 @@ class TopicController extends Controller
         return view('edu::topic.edit', compact('topic', 'tags'));
     }
 
-    public function update(Request $request, Topic $topic)
+    public function update(TopicRequest $request, Topic $topic)
     {
         $this->authorize('update', $topic);
         $topic->fill($request->input())->save();

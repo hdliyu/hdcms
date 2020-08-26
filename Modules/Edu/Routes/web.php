@@ -18,6 +18,7 @@ Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front.','namesp
     Route::resource('video','VideoController')->only(['index','show']);
     Route::resource('sign','SignController')->only(['index','store','destroy']);
     Route::resource('{model}/{id}/comment','CommentController')->only(['index','store','destroy']);
+    Route::get('live', 'LiveController@index')->name('live.index');
 });
 
 

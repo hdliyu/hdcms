@@ -31,7 +31,7 @@
                         <a href="" class="nav-link">订阅会员</a>
                     </li>
                     <li class="nav-item pr-2">
-                        <a href="" class="nav-link">直播间</a>
+                        <a href="{{ route('edu.front.live.index') }}" class="nav-link">直播间</a>
                     </li>
                 </ul>
                 @guest

@@ -34,7 +34,15 @@
     }
   }
 }
-
+.edu-front-live-index {
+    .video {
+        background: #22262f;
+        video {
+            width: 100%;
+            outline: none;
+        }
+    }
+}
 .edu-front-video-show {
   .video {
     background: #22262f;

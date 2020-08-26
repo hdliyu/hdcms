@@ -32,7 +32,7 @@ return [
         ]
     ],
     [
-        'title' => '基本配置',
+        'title' => '会员评论',
         'show' => false,
         'items' => [
             ['title' => '评论管理', 'route' => route('edu.admin.tag.index'), 'permission' => 'comment_manage'],

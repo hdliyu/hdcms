@@ -16,6 +16,7 @@ Route::group(['namespace'=>'Account','middleware'=>'front'],function(){
     Route::resource('login','LoginController')->only(['index','store'])->names([
         'index'=>'login'
     ]);
+    Route::get('logout','LoginController@logout')->name('logout');
     Route::resource('register','RegisterController')->only(['index','store'])->names([
         'index'=>'register'
     ]);
@@ -49,6 +50,8 @@ Route::group(['namespace'=>'Site','prefix'=>'site','middleware'=>['auth','admin'
     Route::resource('site','SiteController');
     Route::post('{site}/admin/search','AdminController@search')->name('admin.search');
     Route::get('{site}/admin/add/{user}', 'AdminController@add')->name('admin.add');
+    Route::get('{site}/config','ConfigController@edit')->name('config.edit');
+    Route::put('{site}/config','ConfigController@update')->name('config.update');
     Route::resource('{site}/role','RoleController');
     Route::resource('{site}/admin','AdminController');
     Route::get('{site}/admin/role/{user}', 'AdminController@role')->name('admin.role');
@@ -62,4 +65,9 @@ Route::group(['prefix' => "common", 'namespace' => 'Common', 'as' => 'common.'],
     Route::post('upload', 'UploadController@make')->name('upload');
     Route::get('{model}/{id}/favorite', 'FavoriteController@make')->name('favorite');
     Route::get('{model}/{id}/favour', 'FavourController@make')->name('favour');
+});
+
+Route::group(['prefix' => "module", 'namespace' => 'Module', 'as' => 'module.', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('config', 'ConfigController@edit')->name('config.edit');
+    Route::put('config', 'ConfigController@update')->name('config.update');
 });

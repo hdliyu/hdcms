@@ -11,7 +11,7 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/rainbow.min.css" rel="stylesheet">
 </head>
 <body class="front">
-<div class="{{ route_class() }}">
+<div class="{{ route_class() }}" id="app">
     @include('edu::layouts.header')
     <div class="container mt-3">
         @include('layouts.message')

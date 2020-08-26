@@ -44,7 +44,7 @@
                             </a>
                         @endif
                         @can('update',$site)
-                            <a href="/site/1/config" class="text-muted mr-2">
+                            <a href="{{route('site.config.edit',$site)}}" class="text-muted mr-2">
                             <i aria-hidden="true" class="fa fa-check-circle-o"></i>
                             网站配置
                         </a>

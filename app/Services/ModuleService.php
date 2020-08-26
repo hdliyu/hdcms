@@ -30,10 +30,15 @@ class ModuleService
         return $config + [
                 'preview' => '/modules/' . $name . '/static/preview.jpg',
                 'id' => $model['id'] ?? 0,
-                'menus' => $this->config($module, 'menus'),
+                'menus' => $this->menu($module),
                 'installed' => (bool) $model,
                 'module' => $module
             ];
+    }
+
+    protected function menu($module)
+    {
+        return array_merge(include __DIR__ . '/data/menus.php',$this->config($module, 'menus'));
     }
 
     protected function config($module, $name)
@@ -49,3 +54,4 @@ class ModuleService
     }
 
 }
+

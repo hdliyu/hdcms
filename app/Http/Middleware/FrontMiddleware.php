@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use App\Models\Site;
+use App\Services\ConfigService;
 use Closure;
+use function app;
 
 class FrontMiddleware
 {
@@ -17,6 +19,7 @@ class FrontMiddleware
     public function handle($request, Closure $next)
     {
         $this->init();
+        app(ConfigService::class)->loadCurrentModuleConfig();
         return $next($request);
     }
 

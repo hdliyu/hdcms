@@ -7,15 +7,14 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Edu\Entities\Study;
 use Modules\Edu\Entities\Video;
-use function app;
-use function dd;
-use function dump;
-use function hasStudy;
-use function site;
-use function user;
 
 class VideoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only('show');
+    }
+
     public function index()
     {
         $videos = Video::latest('updated_at')->paginate();
