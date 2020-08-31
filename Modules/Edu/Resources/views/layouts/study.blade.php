@@ -22,7 +22,7 @@
                             {{$study->user->name}}
                         </a>
                         <i class="fa fa-clock-o"></i>
-                        {{$study->created_at->diffForHumans()}}
+                        {{$study->updated_at->diffForHumans()}}
                     </div>
                 </div>
             </div>

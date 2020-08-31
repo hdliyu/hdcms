@@ -27,7 +27,7 @@ class FrontMiddleware
     {
         $info = parse_url(request()->url());
         $https = $info['scheme'] == 'https';
-        $site = Site::where('domain', $info['host'])->where('https',$https)->firstOrFail();
+        $site = Site::firstOrFail();
         site($site);
         module($site->module->name);
     }

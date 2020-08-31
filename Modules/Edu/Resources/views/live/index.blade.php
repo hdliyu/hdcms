@@ -32,9 +32,9 @@
                         <x-input name="a" title="推流服务器" value="{{ config('module.push.url') }}"></x-input>
                         <x-input name="a" title="串流密钥" value="{{ config('module.push.key') }}"></x-input>
 
-                        {{-- <x-input name="c" title="播流RTMP地址" value="{{ config('module.play.rtmp') }}"></x-input>
+                        <x-input name="c" title="播流RTMP地址" value="{{ config('module.play.rtmp') }}"></x-input>
                         <x-input name="c" title="播流FLV地址" value="{{ config('module.play.flv') }}"></x-input>
-                        <x-input name="c" title="播流M3U8地址" value="{{ config('module.play.hls') }}"></x-input> --}}
+                        <x-input name="c" title="播流M3U8地址" value="{{ config('module.play.hls') }}"></x-input>
 
                         <a href="" class="btn btn-primary mt-3">推流</a>
                     </div>

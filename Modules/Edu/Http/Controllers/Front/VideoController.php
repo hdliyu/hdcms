@@ -7,9 +7,10 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Edu\Entities\Study;
 use Modules\Edu\Entities\Video;
-
+use Modules\Edu\Entities\Traits\Study as StudyTrait;
 class VideoController extends Controller
 {
+    use StudyTrait;
     public function __construct()
     {
         $this->middleware('auth')->only('show');
@@ -17,20 +18,20 @@ class VideoController extends Controller
 
     public function index()
     {
+        $studys = $this->study();
         $videos = Video::latest('updated_at')->paginate();
-        return view('edu::video.index',compact('videos'));
+        return view('edu::video.index',compact('videos','studys'));
     }
 
     public function show(Video $video)
     {
-        //五分钟内没有刷新写入数据库
-        if(!hasStudy($video)){
-            Study::create([
-                'site_id'=>site()['id'],
-                'user_id'=>user()->make()['id'],
-                'video_id'=>$video->id,
-            ]);
-        }
+        Study::updateOrCreate([
+            'site_id'=>site()['id'],
+            'user_id'=>user()->make()['id'],
+            'video_id'=>$video->id,
+        ],[
+            'updated_at'=>now(),
+        ]);
         return view('edu::video.show',compact('video'));
     }
 

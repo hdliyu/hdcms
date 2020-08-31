@@ -8,9 +8,10 @@ use App\Http\Controllers\Controller;
 use Modules\Edu\Entities\Tag;
 use Modules\Edu\Entities\Topic;
 use Modules\Edu\Http\Requests\TopicRequest;
-
+use Modules\Edu\Entities\Traits\Study;
 class TopicController extends Controller
 {
+    use Study;
 
     public function __construct()
     {
@@ -21,7 +22,8 @@ class TopicController extends Controller
     public function index(Request $request)
     {
         $topics = Topic::search($request->w)->latest()->paginate();
-        return view('edu::topic.index', compact('topics'));
+        $studys = $this->study();
+        return view('edu::topic.index', compact('topics','studys'));
     }
 
 

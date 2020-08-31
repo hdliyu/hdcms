@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Account;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,6 @@ class LoginController extends Controller
     {
         return view('account.login');
     }
-
 
     public function store(Request $request)
     {

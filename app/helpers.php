@@ -73,8 +73,3 @@ function is_admin()
 function hasSign(){
     return user()->make()->isSign;
 }
-
- function hasStudy($video)
-{
-    return Study::where('site_id', site()['id'])->where('user_id',user()->make()['id'])->where('video_id',$video['id'])->where('created_at','>',now()->subMinutes(5))->exists();
-}

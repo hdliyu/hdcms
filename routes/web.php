@@ -20,7 +20,7 @@ Route::group(['namespace'=>'Account','middleware'=>'front'],function(){
     Route::resource('register','RegisterController')->only(['index','store'])->names([
         'index'=>'register'
     ]);
-    Route::post('register/code','RegisterController@code')->middleware(['throttle:1,1']);
+    Route::post('register/code','RegisterController@code')->middleware(['throttle:3,1']);
     Route::get('follow/{user}','UserController@follower')->name('user.follower');
 
 });

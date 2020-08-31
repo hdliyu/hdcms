@@ -20,7 +20,7 @@
             {{ user()->isFollower($user)?'已关注':'关注 TA' }}
         </a>
         <a href="{{ route('common.favour',['User',$user->id]) }}"
-           class="btn btn-sm {{ $user->make()->isFavour?'btn-success':'btn-outline-secondary' }}" `">
+           class="btn btn-sm {{ $user->make()->isFavour?'btn-success':'btn-outline-secondary' }}">
         <i class="fas fa-heart "></i>
         {{ $user->make()->isFavour?'感谢点赞': '点个赞呗'}}
         </a>

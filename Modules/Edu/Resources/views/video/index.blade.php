@@ -22,6 +22,7 @@
             </div>
             <div class="col-12 col-md-3 pl-md-0">
                @include('edu::topic.tips')
+               @include('edu::layouts.study')
             </div>
         </div>
     </div>

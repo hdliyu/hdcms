@@ -16,7 +16,7 @@ trait Favour
     {
         $method = $this->isfavour ? 'detach' : 'attach';
 
-        $this->favours()->$method([Auth::id()], [
+        $this->favours()->$method([user('id')], [
             'site_id' => site()['id'],
             'module_Id' => module()['id']
         ]);
