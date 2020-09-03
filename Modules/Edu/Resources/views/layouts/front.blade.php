@@ -19,11 +19,12 @@
     @yield('content')
     @include('edu::layouts.footer')
 </div>
-@stack('scripts')
+@stack('vue')
 <script src="{{mix('modules/Edu/app.js')}}"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
 <script>
     hljs.initHighlightingOnLoad();
 </script>
+@stack('scripts')
 </body>
 </html>

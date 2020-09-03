@@ -11,6 +11,7 @@ class ConfigController extends Controller
 {
     public function edit(Site $site)
     {
+        config(['site'=>$site['config']]);
         return view('site_config.edit',compact('site'));
     }
 

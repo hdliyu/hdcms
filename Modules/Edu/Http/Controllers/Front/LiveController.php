@@ -23,11 +23,9 @@ class LiveController extends Controller
         $stream = Str::random(10);
         $pushUrl = $liveService->pushUrl($config['push_url'], 'houdunren', $stream, $config['push_key']);
         $playUrls = $liveService->playUrl($config['play_url'], 'houdunren', $stream, $config['play_key']);
-
         $ConfigService->saveCurrentModuleConfig([
             'push' => $pushUrl, 'play' => $playUrls, 'is_live' => false
         ]);
-
         $res = $liveService->notify(
             config('site.aliyun.accessKeyId'),
             config('site.aliyun.accessKeySecret'),
@@ -37,9 +35,10 @@ class LiveController extends Controller
         return back()->with('success', '直播地址已生成');
     }
 
+    // 直播状态修改接口 由阿里云服务器请求
     public function notify(Request $request, ConfigService $ConfigService)
     {
-        // Log::info($request->all());
+//         Log::info($request->all());
         switch ($request->input('action')) {
             case 'publish_done':
                 $ConfigService->saveCurrentModuleConfig([

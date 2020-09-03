@@ -1,16 +1,42 @@
 @extends('edu::layouts.front')
+@push('vue')
+    <script src="https://cdn.bootcdn.net/ajax/libs/hls.js/8.0.0-beta.3/hls.min.js"></script>
+    <script>
+        let video = document.getElementById('video');
+        let videoSrc = '{{ config('module.play.hls') }}';
+        if (Hls.isSupported()) {
+            let hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.play();
+            });
+        }
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', function() {
+                video.play();
+            });
+        }
+    </script>
+@endpush
 @section('content')
-    {{-- 视频播放--}}
-    <div class="video mb-2">
-        <div class="container p-0 pl-md-3 pr-md-3">
-            <div class="video">
-                <video controls>
-                    {{--                        <source src="{{ $video->path }}" type="video/mp4">--}}
-                </video>
+     @if (config('module.is_live'))
+    <div>
+        <div style="background:#22262f">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-8">
+                        <video id="video" width="100%" controls></video>
+                    </div>
+                    <div class="col-12 col-sm-4 d-flex pl-sm-0" id="app">
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    {{-- 视频播放END--}}
+     @endif
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
@@ -32,11 +58,11 @@
                         <x-input name="a" title="推流服务器" value="{{ config('module.push.url') }}"></x-input>
                         <x-input name="a" title="串流密钥" value="{{ config('module.push.key') }}"></x-input>
 
-                        <x-input name="c" title="播流RTMP地址" value="{{ config('module.play.rtmp') }}"></x-input>
-                        <x-input name="c" title="播流FLV地址" value="{{ config('module.play.flv') }}"></x-input>
-                        <x-input name="c" title="播流M3U8地址" value="{{ config('module.play.hls') }}"></x-input>
+{{--                        <x-input name="c" title="播流RTMP地址" value="{{ config('module.play.rtmp') }}"></x-input>--}}
+{{--                        <x-input name="c" title="播流FLV地址" value="{{ config('module.play.flv') }}"></x-input>--}}
+{{--                        <x-input name="c" title="播流M3U8地址" value="{{ config('module.play.hls') }}"></x-input>--}}
 
-                        <a href="" class="btn btn-primary mt-3">推流</a>
+                        <a href="{{route('edu.front.live.push')}}" class="btn btn-primary mt-3">推流</a>
                     </div>
                 </div>
             </div>

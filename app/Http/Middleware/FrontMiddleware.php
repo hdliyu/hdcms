@@ -19,6 +19,7 @@ class FrontMiddleware
     public function handle($request, Closure $next)
     {
         $this->init();
+        config(['site'=>site()['config']]);
         app(ConfigService::class)->loadCurrentModuleConfig();
         return $next($request);
     }
