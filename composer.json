@@ -27,7 +27,9 @@
         "mews/purifier": "^3.2",
         "nwidart/laravel-modules": "^7.1",
         "spatie/laravel-activitylog": "^3.14",
-        "spatie/laravel-permission": "^3.13"
+        "spatie/laravel-permission": "^3.13",
+        "workerman/gateway-worker": "^3.0",
+        "workerman/gatewayclient": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.4",
@@ -54,7 +56,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Modules\\": "Modules/"
+            "Modules\\": "Modules/",
+            "Socket\\": "socket/"
         },
         "classmap": [
             "database/seeds",

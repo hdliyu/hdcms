@@ -30,7 +30,7 @@
                         <video id="video" width="100%" controls></video>
                     </div>
                     <div class="col-12 col-sm-4 d-flex pl-sm-0" id="app">
-
+                        <live-chat></live-chat>
                     </div>
                 </div>
             </div>
