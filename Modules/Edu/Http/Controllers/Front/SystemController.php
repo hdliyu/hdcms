@@ -13,13 +13,13 @@ class SystemController extends Controller
     public function index()
     {
         $systems = System::all();
-        return view('edu::front_system.index',compact('systems'));
+        return view('edu::system_front.index',compact('systems'));
     }
 
 
     public function show(System $system)
     {
-        return view('edu::front_system.show',compact('system'));
+        return view('edu::system_front.show',compact('system'));
     }
 
     public function destroy(System $system)

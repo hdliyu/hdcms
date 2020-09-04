@@ -23,6 +23,7 @@ Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front.','namesp
     Route::any('live/notify', 'LiveController@notify')->name('live.notify');
     Route::get('chat/init', 'ChatController@init')->name('chat.init');
     Route::post('chat/send', 'ChatController@send')->name('chat.send');
+    Route::get('subscribe', 'SubscribeController@index')->name('subscribe.index');
 });
 
 

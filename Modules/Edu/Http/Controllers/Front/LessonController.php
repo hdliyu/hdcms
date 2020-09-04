@@ -15,12 +15,12 @@ class LessonController extends Controller
     {
         $tags = Tag::site()->get();
         $lessons = Lesson::site()->search($request->w)->latest()->search($request->query('tag'))->paginate(9);
-        return view('edu::front_lesson.index',compact('lessons','tags'));
+        return view('edu::lesson_front.index',compact('lessons','tags'));
     }
 
     public function show(Lesson $lesson)
     {
-        return view('edu::front_lesson.show',compact('lesson'));
+        return view('edu::lesson_front.show',compact('lesson'));
     }
 
 
