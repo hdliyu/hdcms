@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{mix('modules/Edu/app.css')}}">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.1/styles/rainbow.min.css" rel="stylesheet">
+    <script>
+        window.user = @json(['id'=>user('id'),'nickname'=>user('name')]);
+    </script>
 </head>
 <body class="front">
 <div class="{{ route_class() }}" id="app">

@@ -22,7 +22,7 @@
                 client_id: '',
                 messages: [],
                 content: '',
-                isLogin: !!window.user.id
+                isLogin: window.user.id*1 > 0
             }
         },
         mounted() {

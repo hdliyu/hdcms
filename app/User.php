@@ -48,6 +48,11 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    public function getNicknameAttribute()
+    {
+        return $this->name ?? '小海豚';
+    }
+
     public function group()
     {
         return $this->belongsTo(Group::class);

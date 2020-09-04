@@ -21,6 +21,8 @@ Route::group(['prefix'=>'Edu','middleware'=>['front'],'as'=>'edu.front.','namesp
     Route::get('live', 'LiveController@index')->name('live.index');
     Route::get('live/push', 'LiveController@push')->name('live.push');
     Route::any('live/notify', 'LiveController@notify')->name('live.notify');
+    Route::get('chat/init', 'ChatController@init')->name('chat.init');
+    Route::post('chat/send', 'ChatController@send')->name('chat.send');
 });
 
 

@@ -21,7 +21,7 @@
     </script>
 @endpush
 @section('content')
-     @if (config('module.is_live'))
+{{--     @if (config('module.is_live'))--}}
     <div>
         <div style="background:#22262f">
             <div class="container">
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-     @endif
+{{--     @endif--}}
     <div class="container mt-3">
         <div class="row">
             <div class="col-12">
