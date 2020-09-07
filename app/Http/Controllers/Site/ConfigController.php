@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Site;
 use Illuminate\Http\Request;
-use function compact;
 
 class ConfigController extends Controller
 {

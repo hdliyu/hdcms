@@ -26,7 +26,7 @@
         <x-input type="password" title="支付宝公钥" name="alipay[ali_public_key]" placeholder="使用支付宝提供的签名生成工具创建，注意不要有换行"
             value="{{ config('site.alipay.ali_public_key') }}">
         </x-input>
-        <x-input title="运行模式" name="alipay[mode]" placeholder="沙箱模式需要设置值为dev" value="{{ config('site.alipay.mode') }}">
+        <x-input title="运行模式" name="alipay[mode]" placeholder="沙箱模式需要设置值为dev"  value="{{ config('site.alipay.mode') }}">
         </x-input>
     </div>
 </div>

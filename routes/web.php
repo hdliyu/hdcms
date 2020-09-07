@@ -65,6 +65,10 @@ Route::group(['prefix' => "common", 'namespace' => 'Common', 'as' => 'common.'],
     Route::post('upload', 'UploadController@make')->name('upload');
     Route::get('{model}/{id}/favorite', 'FavoriteController@make')->name('favorite');
     Route::get('{model}/{id}/favour', 'FavourController@make')->name('favour');
+    Route::get('pay/sync/{module}', 'PayController@sync')->name('pay.sync');
+    Route::post('pay/async/{module}', 'PayController@async')->name('pay.async');
+    Route::post('pay/wepayAsync/{module}', 'PayController@wepayAsync')->name('pay.wepayAsync');
+    Route::post('code', 'CodeController@send')->name('code.send');
 });
 
 Route::group(['prefix' => "module", 'namespace' => 'Module', 'as' => 'module.', 'middleware' => ['auth', 'admin']], function () {
