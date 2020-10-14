@@ -39,6 +39,6 @@ class User extends AppUser
 
     public function studys()
     {
-        return $this->hasMany(Study::class);
+        return $this->belongsToMany(Video::class,'edu_study','user_id','video_id')->withTimestamps()->using(Study::class);
     }
 }

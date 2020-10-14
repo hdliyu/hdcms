@@ -7,10 +7,8 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Edu\Entities\Study;
 use Modules\Edu\Entities\Video;
-use Modules\Edu\Entities\Traits\Study as StudyTrait;
 class VideoController extends Controller
 {
-    use StudyTrait;
     public function __construct()
     {
         $this->middleware('auth')->only('show');
@@ -18,20 +16,17 @@ class VideoController extends Controller
 
     public function index()
     {
-        $studys = $this->study();
+        $dynamics = Study::where('site_id',site()['id'])->latest()->take(10)->get();
         $videos = Video::latest('updated_at')->paginate();
-        return view('edu::video.index',compact('videos','studys'));
+        return view('edu::video.index',compact('videos','dynamics'));
     }
 
     public function show(Video $video)
     {
-        Study::updateOrCreate([
-            'site_id'=>site()['id'],
-            'user_id'=>user()->make()['id'],
-            'video_id'=>$video->id,
-        ],[
-            'updated_at'=>now(),
-        ]);
+        $id = $video->id;
+//        user()->make()->studys()->updateOrCreate(['video_id'=>5906,'user_id'=>1,'site_id'=>1]);
+        user()->make()->studys()->detach([$id]);
+        user()->make()->studys()->attach([$id=>['site_id'=>site()['id']]]);
         return view('edu::video.show',compact('video'));
     }
 

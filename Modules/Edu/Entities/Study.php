@@ -2,14 +2,12 @@
 
 namespace Modules\Edu\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Study extends Model
+class Study extends Pivot
 {
     protected $table = 'edu_study';
     protected $fillable = ['site_id','user_id','video_id','updated_at'];
-
-
 
     public function user()
     {

@@ -3,7 +3,7 @@
 use App\Models\Site;
 use App\Services\ModuleService;
 use App\User;
-use Modules\Edu\Entities\Study;
+
 
 function user($name = null)
 {

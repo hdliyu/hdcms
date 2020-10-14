@@ -48,4 +48,8 @@ class Video extends Model
         return route('edu.front.video.show', $this);
     }
 
+    public function visitors()
+    {
+        return $this->belongsToMany(User::class,'edu_study','video_id','user_id')->withTimestamps()->using(Study::class);
+    }
 }

@@ -4,25 +4,25 @@
         学习动态
     </div>
     <div class="list-group list-group-flush">
-        @foreach($studys as $study)
+        @foreach($dynamics as $dynamic)
         <div class="list-group-item">
             <div class="d-flex align-items-start justify-content-start">
                 <div class="pt-1 mr-3">
-                    <a href="{{route('edu.center.topic.index',$study->user)}}">
-                        <img src="{{$study->user->avatar}}" class="avatar35 rounded">
+                    <a href="{{route('edu.center.topic.index',$dynamic->user->id)}}">
+                        <img src="{{$dynamic->user->avatar}}" class="avatar35 rounded">
                     </a>
                 </div>
                 <div class="pl-0">
-                    <a href="{{route('edu.front.video.show',$study->video)}}"
+                    <a href="{{route('edu.front.video.show',$dynamic->video->id)}}"
                        class="d-flex justify-content-between d-block mb-1">
-                        {{$study->video->title}}
+                        {{$dynamic->video->title}}
                     </a>
                     <div class="small text-black-50">
-                        <a href="{{route('edu.center.topic.index',$study->user)}}">
-                            {{$study->user->name}}
+                        <a href="{{route('edu.center.topic.index',$dynamic->user->id)}}">
+                            {{$dynamic->user->name}}
                         </a>
                         <i class="fa fa-clock-o"></i>
-                        {{$study->updated_at->diffForHumans()}}
+                        {{$dynamic->created_at->diffForHumans()}}
                     </div>
                 </div>
             </div>
