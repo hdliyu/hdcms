@@ -24,7 +24,6 @@ class VideoController extends Controller
     public function show(Video $video)
     {
         $id = $video->id;
-//        user()->make()->studys()->updateOrCreate(['video_id'=>5906,'user_id'=>1,'site_id'=>1]);
         user()->make()->studys()->detach([$id]);
         user()->make()->studys()->attach([$id=>['site_id'=>site()['id']]]);
         return view('edu::video.show',compact('video'));
