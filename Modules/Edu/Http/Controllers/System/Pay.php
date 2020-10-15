@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Edu\System;
+namespace Modules\Edu\Http\Controllers\System;
 
 use Modules\Edu\Entities\Duration;
 use Modules\Edu\Entities\Order;

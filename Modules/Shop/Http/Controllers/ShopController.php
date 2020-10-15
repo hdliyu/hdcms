@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Edu\Http\Controllers;
+namespace Modules\Shop\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
-class EduController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EduController extends Controller
      */
     public function index()
     {
-        return view('edu::index');
+        return view('shop::index');
     }
 
     /**
@@ -23,7 +23,7 @@ class EduController extends Controller
      */
     public function create()
     {
-        return view('edu::create');
+        return view('shop::create');
     }
 
     /**
@@ -43,7 +43,7 @@ class EduController extends Controller
      */
     public function show($id)
     {
-        return view('edu::show');
+        return view('shop::show');
     }
 
     /**
@@ -53,7 +53,7 @@ class EduController extends Controller
      */
     public function edit($id)
     {
-        return view('edu::edit');
+        return view('shop::edit');
     }
 
     /**

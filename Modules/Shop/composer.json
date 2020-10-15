@@ -10,7 +10,6 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Edu\\Providers\\EduServiceProvider"
             ],
             "aliases": {
 
@@ -19,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Edu\\": ""
+            "Modules\\Shop\\": ""
         }
     }
 }

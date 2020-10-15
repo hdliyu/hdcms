@@ -59,7 +59,8 @@
         "psr-4": {
             "App\\": "app/",
             "Modules\\": "Modules/",
-            "Socket\\": "socket/"
+            "Socket\\": "socket/",
+            "Hdliyu\\Wechat\\": "wechat/src/"
         },
         "classmap": [
             "database/seeds",

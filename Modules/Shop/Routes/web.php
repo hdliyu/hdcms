@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('edu')->group(function() {
-    Route::get('/', 'EduController@index');
+Route::prefix('shop')->group(function() {
+    Route::get('/', 'ShopController@index');
 });
