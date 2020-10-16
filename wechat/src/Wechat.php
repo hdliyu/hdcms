@@ -1,27 +1,34 @@
 <?php
 namespace Hdliyu\Wechat;
 
+use Log;
+
 class Wechat{
-    public $message;
+    protected $message;
 
     public function __construct()
     {
         $this->bind();
-        $this->message = $this->getMessage();
-        \Log::info($this->message);
+        $this->getMessage();
     }
 
-    protected function getMessage()
+    public function getMessage()
     {
-        $message = (array)simplexml_load_string(file_get_contents('php://input'));
-        return $message;
+        $content = file_get_contents('php://input');
+        if($content){
+            return $this->message = simplexml_load_string($content);
+        }
     }
 
+    public function __get($name)
+    {
+        return $this->message->$name??null;
+    }
 
     protected function bind()
     {
-        if(isset($_GET['ignature'],$_GET['timestamp'],$_GET['nonce'],$_GET['echostr'])){
-            $signature = $_GET['ignature'];
+        if(isset($_GET['signature'],$_GET['timestamp'],$_GET['nonce'],$_GET['echostr'])){
+            $signature = $_GET['signature'];
             $timestamp = $_GET['timestamp'];
             $nonce = $_GET['nonce'];
             $token = config('hdliyu.wechat.token');
@@ -29,10 +36,10 @@ class Wechat{
             sort($tmpArr, SORT_STRING);
             if( sha1(implode( $tmpArr )) == $signature ){
                 die($_GET['echostr']);
+            }else{
+                return false;
             }
-            return false;
         }
-
     }
 
 }
