@@ -17,6 +17,7 @@ class CreateSitesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->char('title', '30')->unique()->comment('站点名称');
+            $table->boolean('https')->default(false)->comment('https');
             $table->char('domain', '30')->unique()->comment('站点域名');
             $table->json('config')->comment('站点配置项');
             $table->foreignId('module_id')->nullable()->comment('站点默认模块')->constrained()->onDelete('set null');

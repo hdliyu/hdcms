@@ -19,8 +19,6 @@ class FrontMiddleware
     public function handle($request, Closure $next)
     {
         $this->init();
-        config(['site'=>site()['config']]);
-        app(ConfigService::class)->loadCurrentModuleConfig();
         return $next($request);
     }
 
@@ -28,8 +26,12 @@ class FrontMiddleware
     {
         $info = parse_url(request()->url());
         $https = $info['scheme'] == 'https';
-        $site = Site::firstOrFail();
+        $site = Site::where('https',$https)->where('domain',$info['host'])->firstOrFail();
         site($site);
-        module($site->module->name);
+        config(['site'=>site()['config']]);
+        if($site->module){
+            module($site->module->name);
+            app(ConfigService::class)->loadCurrentModuleConfig();
+        }
     }
 }
