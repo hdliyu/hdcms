@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::any('wechat','Wechat\SubscribeController@handle');
+
 
 Route::get('/', 'HomeController@entry')->name('home')->middleware(['front']);
 
@@ -75,4 +75,10 @@ Route::group(['prefix' => "common", 'namespace' => 'Common', 'as' => 'common.'],
 Route::group(['prefix' => "module", 'namespace' => 'Module', 'as' => 'module.', 'middleware' => ['auth', 'admin']], function () {
     Route::get('config', 'ConfigController@edit')->name('config.edit');
     Route::put('config', 'ConfigController@update')->name('config.update');
+});
+Route::any('wechat','Wechat\SubscribeController@handle')->middleware('front');
+Route::group(['prefix' => "wechat/{site}", 'namespace' => 'Wechat', 'as' => 'wechat.', 'middleware' => ['auth','system','front']], function () {
+    Route::resource('wechat','WechatController');
+    Route::get('default/{wechat}','DefaultController@edit')->name('default.edit');
+    Route::put('default/{wechat}','DefaultController@update')->name('default.update');
 });
