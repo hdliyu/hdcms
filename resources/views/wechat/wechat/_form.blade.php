@@ -7,7 +7,7 @@
         <x-input title="TOKEN" name="token" value="{{ $wechat['token']??'' }}"></x-input>
         <x-input theme="textarea" title="公众号介绍" name="introduce">{{ $wechat['title']??'' }}</x-input>
         <x-input title="微信号" name="name" value="{{ $wechat['name']??'' }}"></x-input>
-        <x-input theme="image" title="二维码" name="qr" value="{{ $wechat['qr']??'' }}"></x-input>
+        <x-input theme="image" title="二维码" name="qr" image="{{ $wechat['qr']??'' }}"></x-input>
         <x-input theme="radio" title="公众号类型" name="type" :options="['subscribe'=>'订阅号','service'=>'服务号']"
                 value="{{ $wechat['type']??'subscribe' }}">
         </x-input>

@@ -21,9 +21,10 @@
             <td> {{ $wechat['title'] }}</td>
             <td> {{ $wechat['name'] }}</td>
             <td> {{ $wechat['type'] }}</td>
-            <td>{{ $site['domain'] }}/houdunren/wechat/{{ $wechat['id'] }}</td>
+            <td> {{ $site['domain'] }}/houdunren/wechat/{{ $wechat['id'] }}</td>
             <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                    <a href="{{ route("wechat.wechat.edit",[$site,$wechat]) }}" class="btn btn-outline-info">微信菜单</a>
                     <a href="{{ route("wechat.default.edit",[$site,$wechat]) }}"
                        class="btn btn-outline-success">默认消息</a>
                     <a href="{{ route("wechat.wechat.edit",[$site,$wechat]) }}" class="btn btn-outline-info">编辑</a>

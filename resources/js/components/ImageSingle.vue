@@ -42,23 +42,32 @@
 <script>
     export default {
         props:{
-            action:{ required:true},
-            name:{required:true},
-            image:{required:true,default:''}
+            action: { default: '/common/upload' },
+            name: { default: 'file' },
+            image: { default: '' },
         },
         data() {
             return {
-                imageUrl: this.image,
+                imageUrl: '',
                 headers:{
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             };
         },
+        watch: {
+            image: {
+                handler(url) {
+                    this.imageUrl = url
+                },
+                immediate: true,
+            },
+        },
         methods: {
             handleAvatarSuccess(res, file) {
-                console.log(res,file);
+                // console.log(res,file);
                 // this.imageUrl = URL.createObjectURL(file.raw);
                 this.imageUrl = res.path
+                this.$emit('update:image', this.imageUrl)
             },
             beforeAvatarUpload(file) {
                 const allowTypes = ['image/jpeg','image/png'];

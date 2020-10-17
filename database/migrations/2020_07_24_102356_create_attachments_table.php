@@ -18,6 +18,7 @@ class CreateAttachmentsTable extends Migration
             $table->string('path');
             $table->string('extension');
             $table->string('name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
