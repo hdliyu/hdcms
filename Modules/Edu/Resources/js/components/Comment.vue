@@ -40,7 +40,7 @@
     </div>
 </template>
 <script>
-    import Editor from "./Editor";
+    import Editor from '../../../../../resources/js/components/Editor'
     export default {
         components:{Editor},
         props: {

@@ -81,4 +81,6 @@ Route::group(['prefix' => "site/{site}", 'namespace' => 'Wechat', 'as' => 'wecha
     Route::resource('wechat','WechatController');
     Route::get('default/{wechat}','DefaultController@edit')->name('default.edit');
     Route::put('default/{wechat}','DefaultController@update')->name('default.update');
+    Route::get('menu/{wechat}/edit','MenuController@edit')->name('menu.edit');
+    Route::put('menu/{wechat}','MenuController@update')->name('menu.update');
 });

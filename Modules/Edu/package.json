@@ -25,7 +25,6 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "@toast-ui/editor": "^2.3.1-alpha",
     "element-ui": "^2.13.2",
     "vuedraggable": "^2.24.0",
     "vuex": "^3.4.0"

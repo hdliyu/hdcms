@@ -10,6 +10,9 @@
         <a class="nav-link active" href="#">编辑公众号</a>
     @endif
     @if( active_class(if_route('wechat.default.edit') ))
-        <a class="nav-link active" href="#">公众号默认回复消息</a>
+        <a class="nav-link active" href="#">默认回复消息</a>
+    @endif
+    @if( active_class(if_route('wechat.menu.edit') ))
+        <a class="nav-link active" href="#">微信菜单</a>
     @endif
 </nav>

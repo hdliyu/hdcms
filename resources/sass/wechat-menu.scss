@@ -1,0 +1,46 @@
+.wechat-menu-edit{
+    .view {
+        width: 350px;
+        height: 550px;
+        border: solid 1px #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        header {
+            img {
+                width: 100%;
+            }
+        }
+        footer {
+            display: flex;
+            justify-content: space-between;
+            dl {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column-reverse;
+                padding: 0;
+                margin: 0;
+                dt,
+                dd {
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 35px;
+                    border-top: solid 1px #ccc;
+                }
+                &:nth-child(n+2){
+                    dt,dd{
+                        border-left: solid 1px #ccc;
+                    }
+                }
+                &:nth-last-child(n+2){
+                    dt,dd{
+                        border-right: solid 1px #ccc;
+                    }
+                }
+            }
+        }
+    }
+}
