@@ -5,11 +5,11 @@ use Hdliyu\Wechat\Message\MsgType;
 use Hdliyu\Wechat\Message\Send;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 class Wechat{
     use Send,MsgType;
-    protected $message;
+    public static $message;
     protected $api = 'https://api.weixin.qq.com/cgi-bin';
 
     public function init()
@@ -21,14 +21,15 @@ class Wechat{
     public function getMessage()
     {
         $content = file_get_contents('php://input');
-        if($content){
-            return $this->message = simplexml_load_string($content);
-        }
+        return self::$message = simplexml_load_string($content);
     }
 
     public function __get($name)
     {
-        return $this->message->$name??null;
+        if($name=='message'){
+            return self::$message;
+        }
+        return self::$message->$name??null;
     }
 
     protected function bind()
