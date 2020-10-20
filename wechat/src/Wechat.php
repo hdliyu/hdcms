@@ -1,12 +1,18 @@
 <?php
 namespace Hdliyu\Wechat;
 
+use Hdliyu\Wechat\Message\MsgType;
+use Hdliyu\Wechat\Message\Send;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 use Log;
 
 class Wechat{
+    use Send,MsgType;
     protected $message;
+    protected $api = 'https://api.weixin.qq.com/cgi-bin';
 
-    public function __construct()
+    public function init()
     {
         $this->bind();
         $this->getMessage();
@@ -42,4 +48,12 @@ class Wechat{
         }
     }
 
+    public function token()
+    {
+        return Cache::remember('access_token', 7200, function () {
+            $url = sprintf('%s/token?grant_type=client_credential&appid=%s&secret=%s',$this->api,config('hdliyu.wechat.appID'),config('hdliyu.wechat.appsecret'));
+            $response = Http::get($url)->throw()->json();
+            return $response['access_token']??null;
+        });
+    }
 }

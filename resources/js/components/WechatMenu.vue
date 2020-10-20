@@ -31,7 +31,7 @@
                         </dl>-->
                     </footer>
                 </div>
-                <div class="edit border shadow-sm p-3 ml-3 d-flex flex-column" v-if="menu.name">
+                <div class="edit border shadow-sm p-3 ml-3 d-flex flex-column">
                     <div class="flex-fill">
                         <div class="form-group">
                             <label for>菜单名称</label>
@@ -74,26 +74,7 @@
         },
         data(){
             return {
-                button:[
-                    {
-                        "type":"click",
-                        "name":"今日歌曲",
-                        "key":"V1001_TODAY_MUSIC"
-                    },
-                    {
-                        "name":"菜单",
-                        "sub_button":[
-                            {
-                                "type":"view",
-                                "name":"搜索",
-                                "url":"http://www.soso.com/"
-                            },
-                            {
-                                "type":"click",
-                                "name":"赞一下我们",
-                                "key":"V1001_GOOD"
-                            }]
-                    }],
+                button:window.wechatMenu,
                 menu:{},
             }
         },
@@ -129,10 +110,11 @@
                 await this.axios.put(url,{
                     menus:this.button
                 })
-                location.href = `/site/${this.site_id}/wechat`
+                // location.href = `/site/${this.site_id}/wechat`
             },
-            push(){
-
+            async push(){
+                let url = `/site/${this.site_id}/menu/${this.wechat_id}/push`
+                await this.axios.get(url)
             }
         }
     }

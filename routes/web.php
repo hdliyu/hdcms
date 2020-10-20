@@ -9,8 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', 'HomeController@entry')->name('home')->middleware(['front']);
 
 Route::group(['namespace'=>'Account','middleware'=>'front'],function(){
@@ -76,11 +74,12 @@ Route::group(['prefix' => "module", 'namespace' => 'Module', 'as' => 'module.', 
     Route::get('config', 'ConfigController@edit')->name('config.edit');
     Route::put('config', 'ConfigController@update')->name('config.update');
 });
-Route::any('wechat','Wechat\SubscribeController@handle')->middleware('front');
+Route::any('/hdliyu/wechat/{model}','Wechat\SubscribeController@handle')->middleware('front');
 Route::group(['prefix' => "site/{site}", 'namespace' => 'Wechat', 'as' => 'wechat.', 'middleware' => ['auth','system','front']], function () {
     Route::resource('wechat','WechatController');
     Route::get('default/{wechat}','DefaultController@edit')->name('default.edit');
     Route::put('default/{wechat}','DefaultController@update')->name('default.update');
     Route::get('menu/{wechat}/edit','MenuController@edit')->name('menu.edit');
     Route::put('menu/{wechat}','MenuController@update')->name('menu.update');
+    Route::get('menu/{wechat}/push','MenuController@push')->name('menu.push');
 });
