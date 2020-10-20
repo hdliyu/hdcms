@@ -54,9 +54,9 @@
                         </div>
                         <button class="btn btn-primary mt-3" @click="add(button,1)">添加一级菜单</button>
                     </div>
-                    <div>
+                <!--    <div>
                         <button class="btn btn-outline-danger btn-sm" @click.prevent="">删除菜单</button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
