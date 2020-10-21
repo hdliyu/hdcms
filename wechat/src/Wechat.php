@@ -15,13 +15,12 @@ class Wechat{
     public function init()
     {
         $this->bind();
-        $this->getMessage();
+        $this->message();
     }
 
-    public function getMessage()
+    public function message()
     {
-        $content = file_get_contents('php://input');
-        return self::$message = simplexml_load_string($content);
+        return self::$message = simplexml_load_string(file_get_contents('php://input'));
     }
 
     public function __get($name)

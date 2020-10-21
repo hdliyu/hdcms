@@ -17,7 +17,7 @@ class CreateWeChatRulesTable extends Migration
             $table->id();
             $table->foreignId('site_id')->constrained()->onDelete('cascade');
             $table->foreignId('module_id')->constrained()->onDelete('cascade');
-            $table->foreignId('wechat_id')->constrained('wechats')->onDelete('cascade');
+            $table->foreignId('wechat_id')->constrained()->onDelete('cascade');
             $table->string('module')->nullable()->comment('模块');
             $table->string('type')->nullable()->comment('类型');
             $table->string('title')->comment('规则名称');

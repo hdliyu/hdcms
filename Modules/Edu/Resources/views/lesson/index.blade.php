@@ -1,7 +1,6 @@
 @extends('layouts.module')
 @section('content')
     @include('edu::lesson.nav')
-    <keyword></keyword>
     <table class="table mt-3 table-bordered">
         <thead>
         <tr>

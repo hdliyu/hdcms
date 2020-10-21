@@ -73,8 +73,10 @@ Route::group(['prefix' => "common", 'namespace' => 'Common', 'as' => 'common.'],
 Route::group(['prefix' => "module", 'namespace' => 'Module', 'as' => 'module.', 'middleware' => ['auth', 'admin']], function () {
     Route::get('config', 'ConfigController@edit')->name('config.edit');
     Route::put('config', 'ConfigController@update')->name('config.update');
+    Route::get('menu/{path}', 'MenuController@entry')->name('menu.entry');
+    Route::get('menu/change-type/{type}', 'MenuController@changeType')->name('menu.type');
 });
-Route::any('/wechat/{model}','Wechat\SubscribeController@handle');
+Route::any('/hdliyu/wechat/{model}','Wechat\SubscribeController@handle');
 Route::group(['prefix' => "site/{site}", 'namespace' => 'Wechat', 'as' => 'wechat.', 'middleware' => ['auth','system','admin']], function () {
     Route::resource('wechat','WechatController');
     Route::get('wechat/{wechat}/default','DefaultController@edit')->name('default.edit');
@@ -82,4 +84,15 @@ Route::group(['prefix' => "site/{site}", 'namespace' => 'Wechat', 'as' => 'wecha
     Route::get('wechat/{wechat}/menu/edit','MenuController@edit')->name('menu.edit');
     Route::put('wechat/{wechat}/menu','MenuController@update')->name('menu.update');
     Route::get('wechat/{wechat}/menu/push','MenuController@push')->name('menu.push');
+});
+Route::group(['prefix' => "wechat", 'namespace' => 'Wechat', 'as' => 'wechat.', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('rule/wechat', 'RuleController@wechat')->name('rule.wechat');
+    Route::resource('rule', 'RuleController')->only(['show', 'destroy']);
+    Route::resource('text', 'TextController');
+    Route::resource('news', 'NewsController');
+    Route::get('material/preview/{openid}/{material}', 'MaterialController@preview')->name('material.preview');
+    Route::resource('material', 'MaterialController');
+    Route::post('keyword/check', 'KeywordController@check')->name('keyword.check');
+    Route::post('user/search/{wechat}', 'UserController@search')->name('user.search');
+    Route::get('user/index/{wechat?}', 'UserController@index')->name('user.index');
 });

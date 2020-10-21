@@ -12,7 +12,7 @@ class CreateWeChatKeywordsTable extends Migration
             $table->id();
             $table->foreignId('site_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('module_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('wechat_id')->nullable()->constrained('wechats')->onDelete('cascade');
+            $table->foreignId('wechat_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('rule_id')->constrained('wechat_rules')->onDelete('cascade');
             $table->string('word')->comment('微信关键词');
             $table->boolean('regexp')->default(false)->comment('正则关键词');
