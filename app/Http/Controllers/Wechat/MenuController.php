@@ -12,7 +12,7 @@ class MenuController extends Controller
 {
     public function edit(Site $site,Wechat $wechat)
     {
-//        dd($wechat->menus);
+        $site = site();
         return view('wechat.menu.edit',compact('site','wechat'));
     }
 
@@ -24,7 +24,7 @@ class MenuController extends Controller
 
     public function push(Request $request,Site $site,Wechat $wechat,Button $button)
     {
-        config(['hdliyu.wechat',$wechat]);
+        config(['hdliyu.wechat'=>$wechat]);
         $button->create(['button'=>$wechat->menus]);
         return response()->json(['message' => '微信菜单推送成功']);
     }

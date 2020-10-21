@@ -14,13 +14,10 @@ class SiteSeeder extends Seeder
     {
         Site::create([
             'title' => '后盾人',
-            'domain' => 'http://houdunren.test',
+            'https' => true,
+            'domain' => 'wxnet.vip',
             'config' => [],
             'user_id' => 1
-        ]);
-        DB::table('admin_site')->insert([
-            'user_id'=>2,
-            'site_id'=>1,
         ]);
     }
 }

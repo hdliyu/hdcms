@@ -106,14 +106,14 @@
                 menu.splice(index,1)
             },
             async submit(){
-                let url = `/site/${this.site_id}/menu/${this.wechat_id}`
+                let url = `/site/${this.site_id}/wechat/${this.wechat_id}/menu`
                 await this.axios.put(url,{
                     menus:this.button
                 })
                 // location.href = `/site/${this.site_id}/wechat`
             },
             async push(){
-                let url = `/site/${this.site_id}/menu/${this.wechat_id}/push`
+                let url = `/site/${this.site_id}/wechat/${this.wechat_id}/menu/push`
                 await this.axios.get(url)
             }
         }

@@ -51,7 +51,7 @@ class Wechat{
 
     public function token()
     {
-        return Cache::remember('access_token', 7200, function () {
+        return Cache::remember('access_token', 7000, function () {
             $url = sprintf('%s/token?grant_type=client_credential&appid=%s&secret=%s',$this->api,config('hdliyu.wechat.appID'),config('hdliyu.wechat.appsecret'));
             $response = Http::get($url)->throw()->json();
             return $response['access_token']??null;

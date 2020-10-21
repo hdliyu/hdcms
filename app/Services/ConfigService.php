@@ -27,6 +27,6 @@ class ConfigService
     public function loadCurrentModuleConfig()
     {
         $model = ModuleConfig::where('site_id', site()['id'])->where('module_id', module()['id'])->first();
-        config(['module' => $model['config'] ?? []]);
+        config(['module.config' => $model['config'] ?? []]);
     }
 }

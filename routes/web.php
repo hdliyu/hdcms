@@ -24,7 +24,7 @@ Route::group(['namespace'=>'Account','middleware'=>'front'],function(){
 
 });
 
-Route::get('/admin','Site\SiteController@index')->name('admin')->middleware(['auth','admin']);
+Route::get('/admin','Site\SiteController@index')->name('admin')->middleware(['auth']);
 
 Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','admin'],'as'=>'admin.'],function (){
     Route::view('system', 'system.setting')->name('setting');
@@ -74,12 +74,12 @@ Route::group(['prefix' => "module", 'namespace' => 'Module', 'as' => 'module.', 
     Route::get('config', 'ConfigController@edit')->name('config.edit');
     Route::put('config', 'ConfigController@update')->name('config.update');
 });
-Route::any('/hdliyu/wechat/{model}','Wechat\SubscribeController@handle')->middleware('front');
-Route::group(['prefix' => "site/{site}", 'namespace' => 'Wechat', 'as' => 'wechat.', 'middleware' => ['auth','system','front']], function () {
+Route::any('/wechat/{model}','Wechat\SubscribeController@handle');
+Route::group(['prefix' => "site/{site}", 'namespace' => 'Wechat', 'as' => 'wechat.', 'middleware' => ['auth','system','admin']], function () {
     Route::resource('wechat','WechatController');
-    Route::get('default/{wechat}','DefaultController@edit')->name('default.edit');
-    Route::put('default/{wechat}','DefaultController@update')->name('default.update');
-    Route::get('menu/{wechat}/edit','MenuController@edit')->name('menu.edit');
-    Route::put('menu/{wechat}','MenuController@update')->name('menu.update');
-    Route::get('menu/{wechat}/push','MenuController@push')->name('menu.push');
+    Route::get('wechat/{wechat}/default','DefaultController@edit')->name('default.edit');
+    Route::put('wechat/{wechat}/default','DefaultController@update')->name('default.update');
+    Route::get('wechat/{wechat}/menu/edit','MenuController@edit')->name('menu.edit');
+    Route::put('wechat/{wechat}/menu','MenuController@update')->name('menu.update');
+    Route::get('wechat/{wechat}/menu/push','MenuController@push')->name('menu.push');
 });

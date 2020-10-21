@@ -25,7 +25,7 @@ class WechatController extends Controller
 
     public function store(WechatRequest $request,Site $site,Wechat $wechat)
     {
-        $wechat->site_id = $site->id;
+        $wechat->site_id = $site['id'];
         $wechat->fill($request->all())->save();
         return redirect()->route('wechat.wechat.index',$site)->with('success','添加公众号成功');
     }
@@ -36,7 +36,7 @@ class WechatController extends Controller
     }
 
 
-    public function update(WechatRequest $request, Site $site,Wechat $wechat)
+    public function update(WechatRequest $request,Site $site, Wechat $wechat)
     {
         $wechat->fill($request->all())->save();
         return redirect()->route('wechat.wechat.index',$site)->with('success','保存成功');

@@ -11,6 +11,7 @@ class DefaultController extends Controller
 {
     public function edit(Site $site,Wechat $wechat)
     {
+       $site = site();
        return view('wechat.default.edit',compact('site','wechat'));
     }
 
